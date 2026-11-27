@@ -1,9 +1,4 @@
 ============================= test session starts ==============================
-platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0
-rootdir: /home/claude/runcopy
-configfile: pytest.ini
-testpaths: tests
-plugins: platformdirs-4.13.5, anyio-4.15.1
 collected 127 items
 
 tests/test_analitica.py ......................                           [ 17%]
@@ -12,4 +7,4 @@ tests/test_fuentes.py ...............                                    [ 54%]
 tests/test_logica_y_funcional.py ...........                             [ 62%]
 tests/test_web.py ...............................................        [100%]
 
-============================= 127 passed in 11.45s =============================
+============================= 127 passed in 11.17s =============================

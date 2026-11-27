@@ -100,7 +100,8 @@ def pruebas() -> None:
     import importlib.util
     cobertura = importlib.util.find_spec("pytest_cov") is not None
     opciones = ["--cov=depaseguro", "--cov-report=term"] if cobertura else []
-    salida = ejecutar(sys.executable, "-m", "pytest", *opciones, "-p", "no:cacheprovider", "-o", "addopts=")
+    # --no-header evita que la captura muestre rutas locales como rootdir o la versión de la plataforma.
+    salida = ejecutar(sys.executable, "-m", "pytest", *opciones, "--no-header", "-p", "no:cacheprovider", "-o", "addopts=")
     (EVIDENCIAS / "pruebas.txt").write_text(salida, encoding="utf-8")
     orden = "$ python -m pytest" + (" --cov=depaseguro" if cobertura else "")
     terminal("pruebas", orden + "\n" + "\n".join(salida.splitlines()[-44:]))
