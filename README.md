@@ -4,6 +4,12 @@ Plataforma web para verificar avisos de vivienda universitaria en Arequipa, calc
 
 Proyecto final del curso **Lenguajes de Programación**, Universidad Tecnológica del Perú, Grupo 08.
 
+Repositorio: https://github.com/kasandra-caceres/DepaSeguroAQP
+
+```
+git clone https://github.com/kasandra-caceres/DepaSeguroAQP.git
+```
+
 ## Qué hace
 
 - Publica y evalúa cuartos, minidepartamentos y pensiones.
