@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% from "parciales/tarjeta.html" import insignia %}
+{% block titulo %}Gestionar aviso{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <p class="nota"><a href="{{ url_for('arrendador.panel') }}">Mis avisos</a></p>
+    <h1>{{ aviso.titulo }}</h1>
+    <p>{{ insignia(aviso) }} · Estado: {{ aviso.estado }} · Dirección: {{ aviso.direccion_estado.replace('_', ' ') }}</p>
+    <div class="acciones">
+      <a class="boton boton-sec boton-chico" href="{{ url_for('publico.detalle', inmueble_id=aviso.id) }}">Ver ficha</a>
+      <a class="boton boton-sec boton-chico" href="{{ url_for('arrendador.editar', inmueble_id=aviso.id) }}">Editar</a>
+      <form method="post" action="{{ url_for('arrendador.codigo', inmueble_id=aviso.id) }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="boton boton-sec boton-chico" type="submit">Generar código de visita</button>
+      </form>
+      <form method="post" action="{{ url_for('arrendador.eliminar', inmueble_id=aviso.id) }}" data-confirmar="¿Retirar este aviso?">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="boton boton-peligro boton-chico" type="submit">Retirar aviso</button>
+      </form>
+    </div>
+    <div class="rejilla rejilla-2" style="margin-top:1rem">
+      <div class="caja">
+        <h2>Documentos</h2>
+        <table>
+          <thead><tr><th>Tipo</th><th>Estado</th><th>Observación</th></tr></thead>
+          {% for d in documentos %}
+          <tr><td>{{ d.tipo.replace('_', ' ') }}</td><td>{{ d.estado }}</td><td>{{ d.observacion or '-' }}</td></tr>
+          {% else %}<tr><td colspan="3">Sin documentos.</td></tr>{% endfor %}
+        </table>
+        <form method="post" enctype="multipart/form-data" action="{{ url_for('arrendador.documento', inmueble_id=aviso.id) }}" style="margin-top:1rem">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <label>Tipo
+            <select name="tipo">
+              <option value="titularidad">Título o partida registral</option>
+              <option value="recibo_servicio">Recibo de luz o agua</option>
+              <option value="identidad">Documento de identidad</option>
+            </select>
+          </label>
+          <label>Archivo PDF, JPG o PNG <input type="file" name="archivo" required accept=".pdf,.jpg,.jpeg,.png"></label>
+          <button class="boton" type="submit">Enviar a revisión</button>
+        </form>
+      </div>
+      <div class="caja">
+        <h2>Cómo mejorar tu puntaje</h2>
+        {% if evaluacion %}
+        {% for c in evaluacion.componentes %}
+        <div class="componente">
+          <div class="componente-fila"><span>{{ c.nombre }}: {{ c.explicacion }}</span><span>{{ '%g'|format(c.obtenido) }}/{{ '%g'|format(c.maximo) }}</span></div>
+          <div class="barra"><i style="width: {{ (c.obtenido / c.maximo * 100)|round|int }}%"></i></div>
+        </div>
+        {% endfor %}
+        {% for h in evaluacion.hallazgos %}<div class="senal senal-{{ h.severidad }}"><b>{{ h.titulo }}</b><p>{{ h.detalle }}</p></div>{% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% from "parciales/tarjeta.html" import tarjeta %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+<section class="heroe">
+  <img class="heroe-fondo" src="{{ url_for('static', filename='img/heroe.svg') }}" alt="">
+  <div class="contenedor">
+    <div class="heroe-texto">
+      <p class="etiqueta">Vivienda universitaria en Arequipa</p>
+      <h1>Antes de transferir un adelanto, verifica el aviso</h1>
+      <p class="lead">Compara precios, detecta fotos repetidas y revisa el historial de cada contacto con ayuda de datos oficiales y de la comunidad estudiantil.</p>
+      <div class="acciones">
+        <a class="boton" href="{{ url_for('publico.verificador') }}">Verificar un aviso</a>
+        <a class="boton boton-sec" style="color:#fff;border-color:#fff" href="{{ url_for('publico.catalogo') }}">Buscar cerca de mi campus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contenedor">
+  <div class="indicadores">
+    <div class="indicador"><b>{{ resumen.avisos }}</b><span>avisos evaluados</span></div>
+    <div class="indicador"><b>{{ resumen.confiables }}</b><span>con nivel confiable</span></div>
+    <div class="indicador"><b>{{ resumen.campus }}</b><span>locales universitarios (SUNEDU)</span></div>
+    <div class="indicador"><b>{{ resumen.fuentes_ok }}/{{ resumen.fuentes }}</b><span>fuentes actualizadas</span></div>
+  </div>
+</div>
+
+<section class="seccion">
+  <div class="contenedor">
+    <h2>Avisos destacados</h2>
+    <div class="rejilla rejilla-3">
+      {% for aviso in destacados %}{{ tarjeta(aviso) }}{% else %}<p>Todavía no hay avisos publicados.</p>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion-clara">
+  <div class="contenedor rejilla rejilla-2">
+    <div>
+      <h2>Cómo te protege</h2>
+      <ol class="pasos">
+        <li><h3>Revisa cada aviso</h3><p>Python analiza precio, fotos, teléfono, condiciones y documentos.</p></li>
+        <li><h3>Cruza datos oficiales</h3><p>Lee cada día información del BCRP, MININTER, Ministerio Público y SUNEDU.</p></li>
+        <li><h3>Te avisa a tiempo</h3><p>Genera alertas, explica el puntaje y te prepara un expediente si fuiste víctima.</p></li>
+      </ol>
+    </div>
+    <div>
+      <video class="video" controls preload="metadata" poster="{{ url_for('static', filename='img/video-portada.png') }}">
+        <source src="{{ url_for('static', filename='video/recorrido.mp4') }}" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+      <p class="nota">Recorrido de la plataforma.</p>
+    </div>
+  </div>
+</section>
+
+{% if anual %}
+<section class="seccion">
+  <div class="contenedor">
+    <p class="etiqueta">Dato oficial</p>
+    <h2>Estafas denunciadas en la provincia de Arequipa</h2>
+    <p class="lead">Este total incluye todo tipo de estafas, no solo alquileres. Muestra por qué conviene verificar antes de pagar.</p>
+    <div class="tabla-scroll caja">
+      <table>
+        <thead><tr><th>Año</th>{% for a in anual %}<th>{{ a.anio }}{% if a.meses < 12 %}*{% endif %}</th>{% endfor %}</tr></thead>
+        <tbody><tr><td>Denuncias</td>{% for a in anual %}<td>{{ '{:,}'.format(a.total) }}</td>{% endfor %}</tr></tbody>
+      </table>
+      <p class="nota">Fuente: MININTER, Denuncias Policiales. *Año con datos parciales.</p>
+    </div>
+    <a class="boton boton-sec" href="{{ url_for('publico.zonas') }}">Ver observatorio de zonas</a>
+  </div>
+</section>
+{% endif %}
+
+<section class="seccion seccion-clara">
+  <div class="contenedor">
+    <h2>Guías para estudiantes</h2>
+    <div class="rejilla rejilla-3">
+      {% for post in posts %}
+      <article class="tarjeta tarjeta-cuerpo">
+        <h3><a href="{{ url_for('publico.articulo', slug=post.slug) }}">{{ post.titulo }}</a></h3>
+        <p>{{ post.resumen }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+    <div class="cta">
+      <div><h2>¿Alquilas un cuarto?</h2><p>Publica con documentos validados y destaca frente a los avisos sin respaldo.</p></div>
+      <a class="boton" href="{{ url_for('auth.registro', rol='arrendador') }}">Publicar mi inmueble</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

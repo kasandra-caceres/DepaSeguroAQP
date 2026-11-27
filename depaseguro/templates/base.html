@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}DepaSeguro AQP{% endblock %} | Vivienda universitaria verificada</title>
+  <meta name="description" content="Verifica avisos de cuartos y minidepartamentos en Arequipa antes de pagar.">
+  <link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  {% block cabecera %}{% endblock %}
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="encabezado">
+  <div class="contenedor encabezado-fila">
+    <a class="marca" href="{{ url_for('publico.inicio') }}">
+      <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="" width="38" height="38">
+      <span>DepaSeguro <b>AQP</b></span>
+    </a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu" data-menu>Menú</button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="{{ url_for('publico.catalogo') }}">Inmuebles</a>
+      <a href="{{ url_for('publico.mapa') }}">Mapa</a>
+      <a href="{{ url_for('publico.verificador') }}">Verificar aviso</a>
+      <a href="{{ url_for('publico.zonas') }}">Zonas</a>
+      <a href="{{ url_for('publico.contrato') }}">Contratos</a>
+      <a href="{{ url_for('publico.blog') }}">Guías</a>
+      {% if usuario %}
+        <a class="menu-cuenta" href="{{ url_for(usuario.panel_inicio()) }}">
+          <span class="avatar">{{ usuario.iniciales }}</span> Mi panel
+          {% if alertas_sin_leer %}<span class="contador">{{ alertas_sin_leer }}</span>{% endif %}
+        </a>
+        <form method="post" action="{{ url_for('auth.logout') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="enlace" type="submit">Salir</button>
+        </form>
+      {% else %}
+        <a href="{{ url_for('auth.login') }}">Ingresar</a>
+        <a class="boton boton-chico" href="{{ url_for('auth.registro') }}">Crear cuenta</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+{% with mensajes = get_flashed_messages(with_categories=true) %}
+  {% if mensajes %}
+  <div class="contenedor mensajes" role="status">
+    {% for categoria, mensaje in mensajes %}<p class="mensaje mensaje-{{ categoria }}">{{ mensaje }}</p>{% endfor %}
+  </div>
+  {% endif %}
+{% endwith %}
+
+<main id="contenido">{% block contenido %}{% endblock %}</main>
+
+<footer class="pie">
+  <div class="contenedor pie-rejilla">
+    <section>
+      <p class="marca marca-pie"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="" width="30" height="30"> DepaSeguro <b>AQP</b></p>
+      <p>Proyecto académico del curso Lenguajes de Programación, Universidad Tecnológica del Perú, Arequipa.</p>
+      <div class="redes" aria-label="Compartir esta página">
+        <a data-compartir="whatsapp" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+        <a data-compartir="facebook" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener">Facebook</a>
+        <a data-compartir="x" href="https://x.com/intent/post" target="_blank" rel="noopener">X</a>
+      </div>
+    </section>
+    <section>
+      <h2>Plataforma</h2>
+      <a href="{{ url_for('publico.catalogo') }}">Buscar inmuebles</a>
+      <a href="{{ url_for('publico.verificador') }}">Verificar un aviso externo</a>
+      <a href="{{ url_for('publico.fuentes') }}">Fuentes de datos</a>
+      <a href="{{ url_for('publico.nosotros') }}">Quiénes somos</a>
+      <a href="{{ url_for('publico.terminos') }}">Términos y privacidad</a>
+    </section>
+    <section>
+      <h2>Enlaces oficiales</h2>
+      <a href="https://www.datosabiertos.gob.pe/" target="_blank" rel="noopener">Datos Abiertos del Perú</a>
+      <a href="https://estadisticas.bcrp.gob.pe/" target="_blank" rel="noopener">BCRPData</a>
+      <a href="https://www.gob.pe/sunarp" target="_blank" rel="noopener">SUNARP</a>
+      <a href="https://www.gob.pe/indecopi" target="_blank" rel="noopener">Indecopi</a>
+    </section>
+    <section>
+      <h2>Contacto</h2>
+      <p>Arequipa, Perú</p>
+      <a href="{{ url_for('publico.contacto') }}">Escríbenos</a>
+      <p class="nota">En una emergencia llama a la Policía Nacional al 105.</p>
+    </section>
+  </div>
+  <p class="contenedor pie-legal">Los puntajes son estimaciones automáticas. No acusan a ninguna persona ni reemplazan la visita, el contrato o la consulta en registros públicos.</p>
+</footer>
+<script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "parciales/tarjeta.html" import insignia %}
+{% block titulo %}Panel de arrendador{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <div class="acciones" style="justify-content:space-between">
+      <h1>Mis avisos</h1>
+      <a class="boton" href="{{ url_for('arrendador.nuevo') }}">Publicar inmueble</a>
+    </div>
+    {% if not usuario.verificado %}<p class="mensaje mensaje-info">Tu identidad aún no fue verificada. Sube tus documentos para que moderación la revise.</p>{% endif %}
+    <div class="caja tabla-scroll">
+      <table>
+        <thead><tr><th>Aviso</th><th>Distrito</th><th>Precio</th><th>Estado</th><th>Trust Score</th><th></th></tr></thead>
+        {% for a in avisos %}
+        <tr>
+          <td>{{ a.titulo }}</td><td>{{ a.distrito|titulo }}</td><td>{{ a.precio_mensual_pen|soles }}</td><td>{{ a.estado }}</td>
+          <td>{{ insignia(a) }}</td>
+          <td><a href="{{ url_for('arrendador.gestionar', inmueble_id=a.id) }}">Gestionar</a></td>
+        </tr>
+        {% else %}<tr><td colspan="6">Aún no publicaste inmuebles.</td></tr>{% endfor %}
+      </table>
+    </div>
+    {% if reportes %}
+    <h2>Reportes que puedes responder</h2>
+    {% for r in reportes %}
+    <div class="caja">
+      <b>{{ r.titulo }}</b> · {{ MOTIVOS[r.motivo] }}
+      <p>{{ r.detalle }}</p>
+      <form method="post" action="{{ url_for('arrendador.descargo', reporte_id=r.id) }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label>Tu descargo <textarea name="texto" required minlength="15"></textarea></label>
+        <button class="boton boton-sec" type="submit">Enviar descargo</button>
+      </form>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

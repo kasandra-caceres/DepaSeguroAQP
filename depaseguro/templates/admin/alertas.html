@@ -1,0 +1,14 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Alertas{% endblock %}
+{% block admin %}
+<h1>Alertas automáticas</h1>
+<div class="caja">
+  {% for a in alertas %}
+  <div class="senal senal-{{ a.severidad }}">
+    <b>{{ a.tipo.replace('_', ' ') }}</b> <span class="nota">{{ a.creado_en|fecha }}</span>
+    <p>{{ a.mensaje }}</p>
+    {% if a.inmueble_id %}<a href="{{ url_for('publico.detalle', inmueble_id=a.inmueble_id) }}">Ver aviso</a>{% endif %}
+  </div>
+  {% else %}<p>Sin alertas.</p>{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% from "parciales/tarjeta.html" import tarjeta %}
+{% block titulo %}Inmuebles{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor con-lateral">
+    <aside class="lateral">
+      <form class="caja" method="get" aria-label="Filtros de búsqueda">
+        <h2>Filtrar</h2>
+        <label>Campus
+          <select name="campus">
+            <option value="">Cualquiera</option>
+            {% for c in campus %}
+            <option value="{{ c.id }}" {{ 'selected' if filtros.campus and filtros.campus.id == c.id }}>{{ c.universidad|titulo }} ({{ c.codigo_local }})</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>Radio máximo (km)
+          <input type="number" name="radio_km" min="0.2" step="0.1" value="{{ filtros.radio_km or '' }}" placeholder="2">
+        </label>
+        <label>Distrito
+          <select name="ubigeo">
+            <option value="">Todos</option>
+            {% for d in distritos %}<option value="{{ d.ubigeo }}" {{ 'selected' if filtros.ubigeo == d.ubigeo }}>{{ d.nombre|titulo }}</option>{% endfor %}
+          </select>
+        </label>
+        <label>Tipo
+          <select name="tipo">
+            <option value="">Todos</option>
+            {% for clave, nombre in TIPOS.items() %}<option value="{{ clave }}" {{ 'selected' if filtros.tipo == clave }}>{{ nombre }}</option>{% endfor %}
+          </select>
+        </label>
+        <label>Precio máximo mensual (S/)
+          <input type="number" name="precio_max" min="0" step="1" value="{{ filtros.precio_max|int if filtros.precio_max else '' }}">
+        </label>
+        <label>Trust Score mínimo
+          <input type="number" name="trust_min" min="0" max="100" value="{{ filtros.trust_min if filtros.trust_min is not none else '' }}">
+        </label>
+        <label>Ordenar por
+          <select name="orden">
+            {% for clave, nombre in [('compatibilidad','Compatibilidad'),('confianza','Mayor confianza'),('precio','Menor precio'),('cercania','Más cerca')] %}
+            <option value="{{ clave }}" {{ 'selected' if filtros.orden == clave }}>{{ nombre }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <button class="boton" type="submit">Aplicar</button>
+        <a class="boton boton-sec" href="{{ url_for('publico.catalogo') }}">Limpiar</a>
+      </form>
+    </aside>
+    <div>
+      <h1>Inmuebles evaluados</h1>
+      <p class="nota">{{ avisos|length }} resultado(s). Los precios están normalizados a soles por mes.</p>
+      <div class="rejilla rejilla-3">
+        {% for aviso in avisos %}{{ tarjeta(aviso) }}{% else %}
+        <div class="caja"><h3>No hay resultados</h3><p>Prueba con un radio mayor o un presupuesto más alto.</p></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

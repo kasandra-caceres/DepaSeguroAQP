@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block titulo %}Observatorio de zonas{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Observatorio de zonas</h1>
+    {% if zonas %}
+    <p class="lead">Datos oficiales del MININTER hasta {{ '%02d'|format(periodo[1]) }}/{{ periodo[0] }}, leídos automáticamente por la plataforma.</p>
+    <div class="rejilla rejilla-2">
+      <div class="caja">
+        <h2>Estafas por mes y proyección</h2>
+        <label>Ámbito
+          <select id="ambito">
+            <option value="">Provincia de Arequipa</option>
+            {% for z in zonas[:14] %}<option value="{{ z.ubigeo }}">{{ z.distrito|titulo }}</option>{% endfor %}
+          </select>
+        </label>
+        <canvas id="serie" height="210"></canvas>
+        <p class="nota">La proyección es una tendencia lineal de los últimos 12 meses. Es una referencia, no una predicción exacta, y los últimos meses pueden estar incompletos porque las denuncias se registran con retraso.</p>
+      </div>
+      <div class="caja">
+        <h2>Delitos informáticos en Arequipa</h2>
+        {% if ciber %}
+        <table>
+          <thead><tr><th>Año</th><th>Fraude informático</th><th>Suplantación</th><th>Total</th></tr></thead>
+          {% for c in ciber %}<tr><td>{{ c.anio }}</td><td>{{ c.fraude }}</td><td>{{ c.suplantacion }}</td><td>{{ c.total }}</td></tr>{% endfor %}
+        </table>
+        <p class="nota">Fuente: Ministerio Público, distrito fiscal de Arequipa. El último año puede ser parcial.</p>
+        {% endif %}
+        {% if cpi %}
+        <h3>Índice de Percepción de la Corrupción, Perú</h3>
+        <p>{% for c in cpi %}<span class="chip">{{ c.periodo }}: {{ c.valor|int }}</span>{% endfor %}</p>
+        <p class="nota">Escala de 0 a 100. Fuente: Transparency International, vía Our World in Data.</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="caja">
+      <h2>Últimos 12 meses por distrito</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead><tr><th>Distrito</th><th>Estafa</th><th>Robo</th><th>Hurto</th><th>Extorsión</th><th>Población</th><th>Estafas por 10 000 hab.</th></tr></thead>
+          {% for z in zonas %}
+          <tr><td>{{ z.distrito|titulo }}</td><td>{{ z.Estafa }}</td><td>{{ z.Robo }}</td><td>{{ z.Hurto }}</td><td>{{ z['Extorsión'] }}</td>
+              <td>{{ '{:,.0f}'.format(z.poblacion) if z.poblacion else 's/d' }}</td><td>{{ z.tasa_estafa if z.tasa_estafa is not none else 's/d' }}</td></tr>
+          {% endfor %}
+        </table>
+      </div>
+      <p class="nota">Una denuncia no equivale a un delito comprobado. Población: Wikidata. Los distritos céntricos reciben también a población flotante, por lo que su tasa puede verse más alta.</p>
+    </div>
+    {% else %}
+    <div class="caja"><p>Aún no se leyeron los datos oficiales. Vuelve a intentarlo cuando termine la primera actualización.</p></div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/chart.umd.min.js') }}"></script>
+<script>
+addEventListener('DOMContentLoaded', () => {
+  const ambito = document.getElementById('ambito');
+  if (!ambito) return;
+  const dibujar = () => graficarSerie('serie', '/api/zonas/serie?ubigeo=' + ambito.value);
+  ambito.addEventListener('change', dibujar);
+  dibujar();
+});
+</script>
+{% endblock %}

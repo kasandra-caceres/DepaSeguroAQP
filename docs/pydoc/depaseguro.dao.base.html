@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.dao.base</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.dao.html" class="white">dao</a>.base</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cdao%5Cbase.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\dao\base.py</a></td></tr></table>
+    <p><span class="code">Conexión&nbsp;SQLite&nbsp;y&nbsp;patrón&nbsp;DAO&nbsp;genérico&nbsp;para&nbsp;las&nbsp;operaciones&nbsp;CRUD.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="sqlite3.html">sqlite3</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.dao.base.html#BaseDAO">BaseDAO</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BaseDAO">class <strong>BaseDAO</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#BaseDAO">BaseDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Encapsula&nbsp;el&nbsp;SQL&nbsp;de&nbsp;una&nbsp;tabla.&nbsp;Las&nbsp;subclases&nbsp;solo&nbsp;declaran&nbsp;``tabla``.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="BaseDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="BaseDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="BaseDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="BaseDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="BaseDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="BaseDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="BaseDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+<dl><dt><strong>tabla</strong> = ''</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-cerrar_db"><strong>cerrar_db</strong></a>(_error=None) -&gt; None</dt></dl>
+ <dl><dt><a name="-conectar"><strong>conectar</strong></a>(ruta: str | Path) -&gt; sqlite3.Connection</dt><dd><span class="code">Abre&nbsp;una&nbsp;conexión&nbsp;con&nbsp;claves&nbsp;foráneas&nbsp;activas&nbsp;y&nbsp;filas&nbsp;tipo&nbsp;diccionario.</span></dd></dl>
+ <dl><dt><a name="-crear_esquema"><strong>crear_esquema</strong></a>(conexion: sqlite3.Connection) -&gt; None</dt></dl>
+ <dl><dt><a name="-obtener_db"><strong>obtener_db</strong></a>() -&gt; sqlite3.Connection</dt><dd><span class="code">Una&nbsp;conexión&nbsp;por&nbsp;petición;&nbsp;se&nbsp;cierra&nbsp;al&nbsp;terminar&nbsp;el&nbsp;contexto&nbsp;de&nbsp;Flask.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ESQUEMA</strong> = WindowsPath('C:/Users/SENATI/AppData/Local/Claud...-11-06-88aa64/DepaSeguroAQP/database/schema.sql')<br>
+<strong>current_app</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>g</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

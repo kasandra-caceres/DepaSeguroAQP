@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.dao.repositorios</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.dao.html" class="white">dao</a>.repositorios</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cdao%5Crepositorios.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\dao\repositorios.py</a></td></tr></table>
+    <p><span class="code">DAOs&nbsp;concretos:&nbsp;cada&nbsp;clase&nbsp;concentra&nbsp;las&nbsp;consultas&nbsp;propias&nbsp;de&nbsp;una&nbsp;entidad.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.dao.repositorios.html#AlertaDAO">AlertaDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#AuditoriaDAO">AuditoriaDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#BlogDAO">BlogDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#BusquedaGuardadaDAO">BusquedaGuardadaDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#CampusDAO">CampusDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#CodigoVisitaDAO">CodigoVisitaDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#ContactoDAO">ContactoDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#DescargoDAO">DescargoDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#DistritoDAO">DistritoDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#DocumentoDAO">DocumentoDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#EvaluacionDAO">EvaluacionDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#FavoritoDAO">FavoritoDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#FuenteDAO">FuenteDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#ImagenDAO">ImagenDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#IndicadorDAO">IndicadorDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#IngestaDAO">IngestaDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#InmuebleDAO">InmuebleDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#ListaContactosDAO">ListaContactosDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#ReporteDAO">ReporteDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#ResenaDAO">ResenaDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#UsuarioDAO">UsuarioDAO</a>
+</dt><dt class="heading-text"><a href="depaseguro.dao.repositorios.html#VerificacionRapidaDAO">VerificacionRapidaDAO</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="AlertaDAO">class <strong>AlertaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#AlertaDAO">AlertaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#AlertaDAO">AlertaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AlertaDAO-de_usuario"><strong>de_usuario</strong></a>(self, usuario_id: int, limite: int = 50) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="AlertaDAO-globales"><strong>globales</strong></a>(self, limite: int = 100) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="AlertaDAO-registrar"><strong>registrar</strong></a>(
+    self,
+    tipo: str,
+    severidad: str,
+    mensaje: str,
+    inmueble_id: int | None = None,
+    usuario_id: int | None = None,
+    clave: str | None = None
+) -&gt; bool</dt><dd><span class="code">Guarda&nbsp;una&nbsp;alerta.&nbsp;Una&nbsp;``clave``&nbsp;repetida&nbsp;se&nbsp;ignora&nbsp;para&nbsp;no&nbsp;duplicar&nbsp;avisos.</span></dd></dl>
+
+<dl><dt><a name="AlertaDAO-sin_leer"><strong>sin_leer</strong></a>(self, usuario_id: int) -&gt; int</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'alertas'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="AlertaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="AlertaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="AlertaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="AlertaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="AlertaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="AlertaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="AlertaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="AuditoriaDAO">class <strong>AuditoriaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#AuditoriaDAO">AuditoriaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#AuditoriaDAO">AuditoriaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AuditoriaDAO-recientes"><strong>recientes</strong></a>(self, limite: int = 100) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="AuditoriaDAO-registrar"><strong>registrar</strong></a>(
+    self,
+    usuario_id,
+    accion: str,
+    entidad: str,
+    entidad_id=None,
+    detalle: str | None = None
+) -&gt; None</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'auditoria'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="AuditoriaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="AuditoriaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="AuditoriaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="AuditoriaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="AuditoriaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="AuditoriaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="AuditoriaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BlogDAO">class <strong>BlogDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#BlogDAO">BlogDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#BlogDAO">BlogDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BlogDAO-por_slug"><strong>por_slug</strong></a>(self, slug: str) -&gt; dict | None</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'blog_posts'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="BlogDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="BlogDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="BlogDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="BlogDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="BlogDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="BlogDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="BlogDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BusquedaGuardadaDAO">class <strong>BusquedaGuardadaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#BusquedaGuardadaDAO">BusquedaGuardadaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#BusquedaGuardadaDAO">BusquedaGuardadaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BusquedaGuardadaDAO-de_usuario"><strong>de_usuario</strong></a>(self, usuario_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-todas"><strong>todas</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'busquedas_guardadas'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="BusquedaGuardadaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="BusquedaGuardadaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CampusDAO">class <strong>CampusDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CampusDAO">CampusDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#CampusDAO">CampusDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="CampusDAO-todos"><strong>todos</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'campus'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="CampusDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="CampusDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="CampusDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="CampusDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="CampusDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="CampusDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="CampusDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CodigoVisitaDAO">class <strong>CodigoVisitaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CodigoVisitaDAO">CodigoVisitaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#CodigoVisitaDAO">CodigoVisitaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="CodigoVisitaDAO-por_codigo"><strong>por_codigo</strong></a>(self, codigo: str) -&gt; dict | None</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'codigos_visita'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="CodigoVisitaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="CodigoVisitaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="CodigoVisitaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="CodigoVisitaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="CodigoVisitaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="CodigoVisitaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="CodigoVisitaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ContactoDAO">class <strong>ContactoDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ContactoDAO">ContactoDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#ContactoDAO">ContactoDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'contactos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="ContactoDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ContactoDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="ContactoDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="ContactoDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="ContactoDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="ContactoDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ContactoDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DescargoDAO">class <strong>DescargoDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DescargoDAO">DescargoDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#DescargoDAO">DescargoDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DescargoDAO-de_reporte"><strong>de_reporte</strong></a>(self, reporte_id: int) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'descargos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="DescargoDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="DescargoDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="DescargoDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="DescargoDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="DescargoDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="DescargoDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="DescargoDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DistritoDAO">class <strong>DistritoDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DistritoDAO">DistritoDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#DistritoDAO">DistritoDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DistritoDAO-todos"><strong>todos</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>clave</strong> = 'ubigeo'</dl>
+
+<dl><dt><strong>tabla</strong> = 'distritos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="DistritoDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="DistritoDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="DistritoDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="DistritoDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="DistritoDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="DistritoDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="DistritoDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DocumentoDAO">class <strong>DocumentoDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DocumentoDAO">DocumentoDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#DocumentoDAO">DocumentoDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DocumentoDAO-de_inmueble"><strong>de_inmueble</strong></a>(self, inmueble_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="DocumentoDAO-pendientes"><strong>pendientes</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'documentos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="DocumentoDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="DocumentoDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="DocumentoDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="DocumentoDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="DocumentoDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="DocumentoDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="DocumentoDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EvaluacionDAO">class <strong>EvaluacionDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EvaluacionDAO">EvaluacionDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#EvaluacionDAO">EvaluacionDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EvaluacionDAO-historial"><strong>historial</strong></a>(self, inmueble_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="EvaluacionDAO-ultima"><strong>ultima</strong></a>(self, inmueble_id: int) -&gt; dict | None</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'evaluaciones'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="EvaluacionDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="EvaluacionDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="EvaluacionDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="EvaluacionDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="EvaluacionDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="EvaluacionDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="EvaluacionDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FavoritoDAO">class <strong>FavoritoDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FavoritoDAO">FavoritoDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#FavoritoDAO">FavoritoDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FavoritoDAO-alternar"><strong>alternar</strong></a>(self, usuario_id: int, inmueble_id: int) -&gt; bool</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-de_usuario"><strong>de_usuario</strong></a>(self, usuario_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-seguidores"><strong>seguidores</strong></a>(self, inmueble_id: int) -&gt; list[int]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'favoritos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="FavoritoDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FavoritoDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="FavoritoDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteDAO">class <strong>FuenteDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteDAO">FuenteDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#FuenteDAO">FuenteDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteDAO-todas"><strong>todas</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>clave</strong> = 'clave'</dl>
+
+<dl><dt><strong>tabla</strong> = 'fuentes_datos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="FuenteDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="FuenteDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="FuenteDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="FuenteDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="FuenteDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="FuenteDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ImagenDAO">class <strong>ImagenDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ImagenDAO">ImagenDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#ImagenDAO">ImagenDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ImagenDAO-de_inmueble"><strong>de_inmueble</strong></a>(self, inmueble_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ImagenDAO-de_otros_arrendadores"><strong>de_otros_arrendadores</strong></a>(self, inmueble_id: int, arrendador_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ImagenDAO-todas"><strong>todas</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'imagenes'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="ImagenDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ImagenDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="ImagenDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="ImagenDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="ImagenDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="ImagenDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ImagenDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="IndicadorDAO">class <strong>IndicadorDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#IndicadorDAO">IndicadorDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#IndicadorDAO">IndicadorDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="IndicadorDAO-guardar"><strong>guardar</strong></a>(self, clave: str, periodo: str, valor: float, fuente: str) -&gt; None</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-serie"><strong>serie</strong></a>(self, clave: str) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-ultimo"><strong>ultimo</strong></a>(self, clave: str) -&gt; dict | None</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'indicadores'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="IndicadorDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="IndicadorDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="IndicadorDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="IngestaDAO">class <strong>IngestaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#IngestaDAO">IngestaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#IngestaDAO">IngestaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'ingestas'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="IngestaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="IngestaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="IngestaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="IngestaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="IngestaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="IngestaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="IngestaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="InmuebleDAO">class <strong>InmuebleDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#InmuebleDAO">InmuebleDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#InmuebleDAO">InmuebleDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="InmuebleDAO-de_arrendador"><strong>de_arrendador</strong></a>(self, arrendador_id: int) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-detalle"><strong>detalle</strong></a>(self, inmueble_id: int) -&gt; dict | None</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-fijar_servicios"><strong>fijar_servicios</strong></a>(self, inmueble_id: int, nombres: list[str]) -&gt; None</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-precios_comparables"><strong>precios_comparables</strong></a>(
+    self,
+    inmueble_id: int,
+    tipo: str,
+    ubigeo: str | None = None
+) -&gt; list[float]</dt><dd><span class="code">Precios&nbsp;por&nbsp;m²&nbsp;de&nbsp;avisos&nbsp;del&nbsp;mismo&nbsp;tipo,&nbsp;excluyendo&nbsp;el&nbsp;aviso&nbsp;evaluado.</span></dd></dl>
+
+<dl><dt><a name="InmuebleDAO-publicados"><strong>publicados</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-servicios"><strong>servicios</strong></a>(self, inmueble_id: int) -&gt; list[str]</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-todos_detalle"><strong>todos_detalle</strong></a>(self) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'inmuebles'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="InmuebleDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="InmuebleDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="InmuebleDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ListaContactosDAO">class <strong>ListaContactosDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ListaContactosDAO">ListaContactosDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#ListaContactosDAO">ListaContactosDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ListaContactosDAO-contiene"><strong>contiene</strong></a>(self, telefono: str) -&gt; bool</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'lista_contactos'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="ListaContactosDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ListaContactosDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="ListaContactosDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="ListaContactosDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="ListaContactosDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="ListaContactosDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ListaContactosDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ReporteDAO">class <strong>ReporteDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ReporteDAO">ReporteDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#ReporteDAO">ReporteDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ReporteDAO-con_detalle"><strong>con_detalle</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ReporteDAO-de_inmueble"><strong>de_inmueble</strong></a>(self, inmueble_id: int) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'reportes'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="ReporteDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ReporteDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="ReporteDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="ReporteDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="ReporteDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="ReporteDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ReporteDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ResenaDAO">class <strong>ResenaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ResenaDAO">ResenaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#ResenaDAO">ResenaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ResenaDAO-de_inmueble"><strong>de_inmueble</strong></a>(self, inmueble_id: int) -&gt; list[dict]</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'resenas'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="ResenaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ResenaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="ResenaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="ResenaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="ResenaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="ResenaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="ResenaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="UsuarioDAO">class <strong>UsuarioDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#UsuarioDAO">UsuarioDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#UsuarioDAO">UsuarioDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="UsuarioDAO-por_email"><strong>por_email</strong></a>(self, email: str) -&gt; dict | None</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'usuarios'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="UsuarioDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="UsuarioDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="UsuarioDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="UsuarioDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="UsuarioDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="UsuarioDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="UsuarioDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="VerificacionRapidaDAO">class <strong>VerificacionRapidaDAO</strong></a>(<a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#VerificacionRapidaDAO">VerificacionRapidaDAO</a>(conexion:&nbsp;sqlite3.Connection&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.dao.repositorios.html#VerificacionRapidaDAO">VerificacionRapidaDAO</a></dd>
+<dd><a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>tabla</strong> = 'verificaciones_rapidas'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><a name="VerificacionRapidaDAO-__init__"><strong>__init__</strong></a>(self, conexion: sqlite3.Connection | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="VerificacionRapidaDAO-actualizar"><strong>actualizar</strong></a>(self, identificador, datos: dict) -&gt; None</dt></dl>
+
+<dl><dt><a name="VerificacionRapidaDAO-contar"><strong>contar</strong></a>(self, condicion: str = '1=1', parametros: tuple = ()) -&gt; int</dt></dl>
+
+<dl><dt><a name="VerificacionRapidaDAO-eliminar"><strong>eliminar</strong></a>(self, identificador) -&gt; None</dt></dl>
+
+<dl><dt><a name="VerificacionRapidaDAO-insertar"><strong>insertar</strong></a>(self, datos: dict) -&gt; int</dt></dl>
+
+<dl><dt><a name="VerificacionRapidaDAO-listar"><strong>listar</strong></a>(self, orden: str | None = None, limite: int = 500) -&gt; list[dict]</dt></dl>
+
+<dl><dt><a name="VerificacionRapidaDAO-obtener"><strong>obtener</strong></a>(self, identificador) -&gt; dict | None</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.dao.base.html#BaseDAO">depaseguro.dao.base.BaseDAO</a>:<br>
+<dl><dt><strong>clave</strong> = 'id'</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

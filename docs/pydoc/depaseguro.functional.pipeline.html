@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.functional.pipeline</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.functional.html" class="white">functional</a>.pipeline</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cfunctional%5Cpipeline.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\functional\pipeline.py</a></td></tr></table>
+    <p><span class="code">Utilidades&nbsp;de&nbsp;programación&nbsp;funcional:&nbsp;composición,&nbsp;orden&nbsp;superior&nbsp;y&nbsp;reducción.<br>
+&nbsp;<br>
+Aplica&nbsp;las&nbsp;sesiones&nbsp;de&nbsp;programación&nbsp;funcional:&nbsp;funciones&nbsp;como&nbsp;parámetros,<br>
+funciones&nbsp;anónimas,&nbsp;funciones&nbsp;que&nbsp;devuelven&nbsp;funciones&nbsp;y&nbsp;valores&nbsp;inmutables.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-agrupar_por"><strong>agrupar_por</strong></a>(clave: Callable[[T], K], elementos: Iterable[T]) -&gt; dict[K, tuple[T, ...]]</dt><dd><span class="code">Agrupa&nbsp;sin&nbsp;modificar&nbsp;estado&nbsp;externo;&nbsp;cada&nbsp;paso&nbsp;crea&nbsp;un&nbsp;diccionario&nbsp;nuevo.</span></dd></dl>
+ <dl><dt><a name="-componer"><strong>componer</strong></a>(*funciones: Callable) -&gt; Callable</dt><dd><span class="code">Crea&nbsp;una&nbsp;función&nbsp;nueva&nbsp;equivalente&nbsp;a&nbsp;``f(g(h(x)))``.</span></dd></dl>
+ <dl><dt><a name="-filtrar"><strong>filtrar</strong></a>(predicado: Callable[[T], bool]) -&gt; Callable[[Iterable[T]], list[T]]</dt></dl>
+ <dl><dt><a name="-limitar"><strong>limitar</strong></a>(minimo: float, maximo: float) -&gt; Callable[[float], float]</dt><dd><span class="code">Crea&nbsp;una&nbsp;función&nbsp;que&nbsp;acota&nbsp;un&nbsp;número&nbsp;al&nbsp;rango&nbsp;indicado.</span></dd></dl>
+ <dl><dt><a name="-mapear"><strong>mapear</strong></a>(transformacion: Callable) -&gt; Callable[[Iterable], list]</dt></dl>
+ <dl><dt><a name="-ordenar_por"><strong>ordenar_por</strong></a>(clave: Callable, descendente: bool = False) -&gt; Callable[[Iterable[T]], list[T]]</dt></dl>
+ <dl><dt><a name="-reduce"><strong>reduce</strong></a>(function, iterable, /, initial=&lt;unrepresentable&gt;)</dt><dd><span class="code">Apply&nbsp;a&nbsp;function&nbsp;of&nbsp;two&nbsp;arguments&nbsp;cumulatively&nbsp;to&nbsp;the&nbsp;items&nbsp;of&nbsp;an&nbsp;iterable,&nbsp;from&nbsp;left&nbsp;to&nbsp;right.<br>
+&nbsp;<br>
+This&nbsp;effectively&nbsp;reduces&nbsp;the&nbsp;iterable&nbsp;to&nbsp;a&nbsp;single&nbsp;value.&nbsp;&nbsp;If&nbsp;initial&nbsp;is<br>
+present,&nbsp;it&nbsp;is&nbsp;placed&nbsp;before&nbsp;the&nbsp;items&nbsp;of&nbsp;the&nbsp;iterable&nbsp;in&nbsp;the<br>
+calculation,&nbsp;and&nbsp;serves&nbsp;as&nbsp;a&nbsp;default&nbsp;when&nbsp;the&nbsp;iterable&nbsp;is&nbsp;empty.<br>
+&nbsp;<br>
+For&nbsp;example,&nbsp;<a href="#-reduce">reduce</a>(lambda&nbsp;x,&nbsp;y:&nbsp;x+y,&nbsp;[1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5])<br>
+calculates&nbsp;((((1&nbsp;+&nbsp;2)&nbsp;+&nbsp;3)&nbsp;+&nbsp;4)&nbsp;+&nbsp;5).</span></dd></dl>
+ <dl><dt><a name="-todos"><strong>todos</strong></a>(*predicados: Callable[[T], bool]) -&gt; Callable[[T], bool]</dt><dd><span class="code">Combina&nbsp;predicados:&nbsp;el&nbsp;resultado&nbsp;es&nbsp;verdadero&nbsp;si&nbsp;todos&nbsp;se&nbsp;cumplen.</span></dd></dl>
+ <dl><dt><a name="-tubo"><strong>tubo</strong></a>(valor, *funciones: Callable)</dt><dd><span class="code">Pasa&nbsp;``valor``&nbsp;por&nbsp;cada&nbsp;función,&nbsp;de&nbsp;izquierda&nbsp;a&nbsp;derecha.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Callable</strong> = typing.Callable<br>
+<strong>Iterable</strong> = typing.Iterable<br>
+<strong>K</strong> = ~K<br>
+<strong>T</strong> = ~T</td></tr></table>
+</body></html>

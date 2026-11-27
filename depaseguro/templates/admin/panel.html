@@ -1,0 +1,32 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Administración{% endblock %}
+{% block admin %}
+<h1>Resumen</h1>
+<div class="indicadores" style="margin:0 0 1.2rem">
+  <div class="indicador"><b>{{ indicadores.avisos }}</b><span>avisos activos</span></div>
+  <div class="indicador"><b>{{ indicadores.pendientes }}</b><span>por moderar</span></div>
+  <div class="indicador"><b>{{ indicadores.reportes_abiertos }}</b><span>reportes abiertos</span></div>
+  <div class="indicador"><b>{{ indicadores.documentos }}</b><span>documentos por revisar</span></div>
+  <div class="indicador"><b>{{ indicadores.monto|soles }}</b><span>perdido en casos confirmados</span></div>
+</div>
+<div class="rejilla rejilla-2">
+  <div class="caja"><h2>Avisos por nivel</h2><canvas id="niveles" height="190"></canvas></div>
+  <div class="caja"><h2>Reportes por motivo</h2><canvas id="motivos" height="190"></canvas></div>
+</div>
+<div class="caja">
+  <h2>Exportar reportes</h2>
+  <div class="acciones">
+    <a class="boton boton-sec boton-chico" href="{{ url_for('admin.exportar', formato='distritos.pdf') }}">Riesgo por distrito (PDF)</a>
+    <a class="boton boton-sec boton-chico" href="{{ url_for('admin.exportar', formato='catalogo.xlsx') }}">Catálogo evaluado (Excel)</a>
+    <a class="boton boton-sec boton-chico" href="{{ url_for('admin.exportar', formato='alertas.csv') }}">Alertas (CSV)</a>
+  </div>
+</div>
+<div class="caja">
+  <h2>Alertas recientes</h2>
+  {% for a in alertas %}<div class="senal senal-{{ a.severidad }}"><p>{{ a.mensaje }}</p><span class="nota">{{ a.creado_en|fecha }}</span></div>{% else %}<p>Sin alertas.</p>{% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/chart.umd.min.js') }}"></script>
+<script>addEventListener('DOMContentLoaded', () => graficarPanel('niveles', 'motivos'));</script>
+{% endblock %}

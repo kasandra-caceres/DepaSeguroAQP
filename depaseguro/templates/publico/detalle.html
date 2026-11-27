@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% from "parciales/tarjeta.html" import insignia %}
+{% block titulo %}{{ aviso.titulo }}{% endblock %}
+{% block cabecera %}<link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet.css') }}">{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor con-lateral-der">
+    <div>
+      <p class="nota"><a href="{{ url_for('publico.catalogo') }}">Inmuebles</a> / {{ aviso.distrito|titulo }}</p>
+      <h1>{{ aviso.titulo }}</h1>
+      {% if aviso.es_demo %}<span class="chip demo">Aviso de demostración</span>{% endif %}
+      {% if aviso.estado == 'observado' %}<p class="mensaje mensaje-error">Este aviso está en observación por señales de riesgo.</p>{% endif %}
+      {% if aviso.estado == 'pendiente' %}<p class="mensaje mensaje-info">Este aviso espera aprobación de moderación.</p>{% endif %}
+      <div class="galeria">
+        {% for imagen in imagenes %}<img src="{{ url_for('publico.media', archivo=imagen.archivo) }}" alt="Foto {{ loop.index }} del inmueble">{% endfor %}
+      </div>
+      <div class="caja">
+        <p class="aviso-precio">{{ aviso.precio_mensual_pen|soles2 }} al mes <small class="nota">({{ aviso.precio_m2_pen|soles2 }} por m²)</small></p>
+        {% if aviso.moneda != 'PEN' or aviso.periodo != 'mes' %}
+        <p class="nota">Publicado como {{ aviso.moneda }} {{ aviso.precio }} por {{ aviso.periodo }}. Convertido con el tipo de cambio del BCRP.</p>
+        {% endif %}
+        <p>{{ aviso.descripcion }}</p>
+        <p class="aviso-meta">{{ TIPOS.get(aviso.tipo) }} · {{ aviso.area_m2|round|int }} m² · {{ aviso.direccion }}, {{ aviso.distrito|titulo }}</p>
+        <p class="aviso-meta">Adelanto: {{ aviso.adelanto_meses }} mes(es) · Garantía: {{ aviso.garantia_meses }} mes(es) · Contrato escrito: {{ 'Sí' if aviso.contrato_escrito else 'No' }}</p>
+        {% for servicio in servicios %}<span class="chip">{{ servicio }}</span>{% endfor %}
+      </div>
+      {% if aviso.lat is not none %}<div id="mapa-punto" class="mini-mapa"></div>{% endif %}
+
+      {% if campus %}
+      <div class="caja">
+        <h2>Campus cercanos</h2>
+        <table>
+          <thead><tr><th>Universidad</th><th>Local</th><th>Distancia</th></tr></thead>
+          {% for c in campus %}<tr><td>{{ c.universidad|titulo }}</td><td>{{ c.codigo_local }}</td><td>{{ c.distancia_km }} km</td></tr>{% endfor %}
+        </table>
+        <p class="nota">Distancia en línea recta. Ubicaciones publicadas por SUNEDU.</p>
+      </div>
+      {% endif %}
+
+      <div class="caja" id="resenas">
+        <h2>Reseñas de estudiantes</h2>
+        {% for r in resenas %}
+        <div class="senal senal-info">
+          <b>{{ '★' * r.puntaje }}{{ '☆' * (5 - r.puntaje) }}</b> {{ r.autor }}
+          {% if r.verificada %}<span class="chip">Visita verificada</span>{% endif %}
+          <p>{{ r.comentario }}</p>
+        </div>
+        {% else %}<p>Aún no hay reseñas.</p>{% endfor %}
+        {% if usuario and usuario.rol == 'estudiante' %}
+        <form method="post" action="{{ url_for('estudiante.resena', inmueble_id=aviso.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <h3>Deja tu reseña</h3>
+          <div class="campos-2">
+            <label>Puntaje
+              <select name="puntaje">{% for n in [5,4,3,2,1] %}<option value="{{ n }}">{{ n }} estrella(s)</option>{% endfor %}</select>
+            </label>
+            <label>Código de visita (opcional)
+              <input name="codigo" maxlength="6" placeholder="Te lo entrega el arrendador">
+            </label>
+          </div>
+          <label>Tu experiencia <textarea name="comentario" required minlength="15"></textarea></label>
+          <button class="boton" type="submit">Publicar reseña</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+
+    <aside class="lateral">
+      <div class="caja">
+        <div class="puntaje">
+          <span class="puntaje-valor">{{ aviso.trust_score if aviso.trust_score is not none else '-' }}</span>
+          <div><span class="nota">Trust Score</span><br>{{ insignia(aviso) }}</div>
+        </div>
+        {% if evaluacion %}
+        <hr>
+        {% for c in evaluacion.componentes %}
+        <div class="componente" title="{{ c.explicacion }}">
+          <div class="componente-fila"><span>{{ c.nombre }}</span><span>{{ '%g'|format(c.obtenido) }}/{{ '%g'|format(c.maximo) }}</span></div>
+          <div class="barra"><i style="width: {{ (c.obtenido / c.maximo * 100)|round|int }}%"></i></div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <a class="boton boton-sec boton-chico" href="{{ url_for('publico.ficha_pdf', inmueble_id=aviso.id) }}">Descargar ficha PDF</a>
+      </div>
+
+      {% if evaluacion %}
+      <div class="caja">
+        <h2>Señales</h2>
+        {% for h in evaluacion.hallazgos %}
+        <div class="senal senal-{{ h.severidad }}"><b>{{ h.titulo }}</b><p>{{ h.detalle }}</p></div>
+        {% else %}<p>No se encontraron señales de riesgo.</p>{% endfor %}
+        {% if evaluacion.patrones %}
+        <h3>Patrones deducidos</h3>
+        {% for p in evaluacion.patrones %}<span class="chip">{{ p }}</span>{% endfor %}
+        {% endif %}
+        {% if evaluacion.recomendaciones %}
+        <h3>Qué hacer</h3>
+        <ul>{% for r in evaluacion.recomendaciones %}<li>{{ r }}</li>{% endfor %}</ul>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if zona %}
+      <div class="caja">
+        <h2>Contexto de la zona</h2>
+        <p>En {{ aviso.distrito|titulo }} se denunciaron <b>{{ zona.Estafa }}</b> estafas, <b>{{ zona.Robo }}</b> robos y <b>{{ zona.Hurto }}</b> hurtos en 12 meses.</p>
+        <p class="nota">Fuente: MININTER. Es un dato del distrito, no de este inmueble, y no afecta su puntaje.</p>
+      </div>
+      {% endif %}
+
+      <div class="caja">
+        {% if usuario and usuario.rol == 'estudiante' %}
+        <form method="post" action="{{ url_for('estudiante.favorito', inmueble_id=aviso.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="boton boton-sec" type="submit">{{ 'Quitar de guardados' if favorito else 'Guardar y vigilar' }}</button>
+        </form>
+        <details>
+          <summary>Reportar este aviso</summary>
+          <form method="post" action="{{ url_for('estudiante.reportar', inmueble_id=aviso.id) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label>Motivo
+              <select name="motivo">{% for clave, nombre in MOTIVOS.items() %}<option value="{{ clave }}">{{ nombre }}</option>{% endfor %}</select>
+            </label>
+            <label>Qué ocurrió <textarea name="detalle" required minlength="20"></textarea></label>
+            <div class="campos-2">
+              <label>Teléfono usado <input name="telefono_reportado" inputmode="tel"></label>
+              <label>Monto perdido (S/) <input name="monto_perdido" type="number" min="0" step="1" value="0"></label>
+            </div>
+            <button class="boton boton-peligro" type="submit">Enviar reporte</button>
+          </form>
+        </details>
+        {% elif not usuario %}
+        <p><a href="{{ url_for('auth.login', siguiente=request.path) }}">Ingresa</a> para guardar, reseñar o reportar este aviso.</p>
+        {% endif %}
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+{% if aviso.lat is not none %}
+<script src="{{ url_for('static', filename='vendor/leaflet.js') }}"></script>
+<script>addEventListener('DOMContentLoaded', () => iniciarMapaPunto('mapa-punto', {{ aviso.lat }}, {{ aviso.lon }}));</script>
+{% endif %}
+{% endblock %}

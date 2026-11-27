@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.config</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.config</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cconfig.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\config.py</a></td></tr></table>
+    <p><span class="code">Configuración&nbsp;central&nbsp;de&nbsp;DepaSeguro&nbsp;AQP&nbsp;(rutas,&nbsp;límites&nbsp;y&nbsp;parámetros).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="secrets.html">secrets</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.config.html#Config">Config</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Config">class <strong>Config</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Valores&nbsp;por&nbsp;defecto;&nbsp;varios&nbsp;pueden&nbsp;sobrescribirse&nbsp;con&nbsp;variables&nbsp;de&nbsp;entorno.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Class methods defined here:<br>
+<dl><dt><a name="Config-preparar"><strong>preparar</strong></a>(app) -&gt; None</dt><dd><span class="code">Crea&nbsp;carpetas&nbsp;de&nbsp;trabajo&nbsp;y&nbsp;completa&nbsp;la&nbsp;configuración&nbsp;dependiente&nbsp;de&nbsp;DATA_DIR.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ADELANTO_MAXIMO_MESES</strong> = 2</dl>
+
+<dl><dt><strong>DATA_DIR</strong> = WindowsPath('C:/Users/SENATI/AppData/Local/Claud...64/scratch-2026-11-06-88aa64/DepaSeguroAQP/data')</dl>
+
+<dl><dt><strong>GEOCODIFICAR</strong> = True</dl>
+
+<dl><dt><strong>HAMMING_IMAGEN_DUPLICADA</strong> = 6</dl>
+
+<dl><dt><strong>HTTP_TIMEOUT</strong> = 90</dl>
+
+<dl><dt><strong>INGESTA_AUTOMATICA</strong> = True</dl>
+
+<dl><dt><strong>INGESTA_INTERVALO_HORAS</strong> = 24</dl>
+
+<dl><dt><strong>MAX_CONTENT_LENGTH</strong> = 12582912</dl>
+
+<dl><dt><strong>MUESTRA_MINIMA_PRECIOS</strong> = 5</dl>
+
+<dl><dt><strong>SESSION_COOKIE_HTTPONLY</strong> = True</dl>
+
+<dl><dt><strong>SESSION_COOKIE_SAMESITE</strong> = 'Lax'</dl>
+
+<dl><dt><strong>TESTING</strong> = False</dl>
+
+<dl><dt><strong>TIPO_CAMBIO_RESPALDO</strong> = 3.45</dl>
+
+<dl><dt><strong>USER_AGENT</strong> = 'DepaSeguroAQP/1.0 (proyecto academico UTP Arequipa)'</dl>
+
+<dl><dt><strong>Z_PRECIO_BAJO</strong> = -1.5</dl>
+
+<dl><dt><strong>Z_PRECIO_MUY_BAJO</strong> = -2.5</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BASE_DIR</strong> = WindowsPath('C:/Users/SENATI/AppData/Local/Claud...2ef1464/scratch-2026-11-06-88aa64/DepaSeguroAQP')</td></tr></table>
+</body></html>

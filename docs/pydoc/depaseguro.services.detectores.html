@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.detectores</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.detectores</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Cdetectores.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\detectores.py</a></td></tr></table>
+    <p><span class="code">Detectores&nbsp;de&nbsp;fraude&nbsp;(patrón&nbsp;Strategy):&nbsp;cada&nbsp;clase&nbsp;revisa&nbsp;un&nbsp;solo&nbsp;aspecto&nbsp;del&nbsp;aviso.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.services.detectores.html#Detector">Detector</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorCondiciones">DetectorCondiciones</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorContacto">DetectorContacto</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorDocumentos">DetectorDocumentos</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorImagenes">DetectorImagenes</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorPrecio">DetectorPrecio</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorReportes">DetectorReportes</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorTexto">DetectorTexto</a>
+</dt><dt class="heading-text"><a href="depaseguro.services.detectores.html#DetectorUbicacion">DetectorUbicacion</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Detector">class <strong>Detector</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Interfaz&nbsp;común.&nbsp;Agregar&nbsp;un&nbsp;detector&nbsp;nuevo&nbsp;no&nbsp;obliga&nbsp;a&nbsp;modificar&nbsp;los&nbsp;demás.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Detector-evaluar"><strong>evaluar</strong></a>(self, ctx: ContextoEvaluacion) -&gt; list[Hallazgo]</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'evaluar'})</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorCondiciones">class <strong>DetectorCondiciones</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorCondiciones">DetectorCondiciones</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorCondiciones-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorContacto">class <strong>DetectorContacto</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorContacto">DetectorContacto</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorContacto-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorDocumentos">class <strong>DetectorDocumentos</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorDocumentos">DetectorDocumentos</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorDocumentos-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorImagenes">class <strong>DetectorImagenes</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorImagenes">DetectorImagenes</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorImagenes-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorPrecio">class <strong>DetectorPrecio</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorPrecio">DetectorPrecio</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorPrecio-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorReportes">class <strong>DetectorReportes</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorReportes">DetectorReportes</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorReportes-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorTexto">class <strong>DetectorTexto</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorTexto">DetectorTexto</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorTexto-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DetectorUbicacion">class <strong>DetectorUbicacion</strong></a>(<a href="depaseguro.services.detectores.html#Detector">Detector</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.services.detectores.html#DetectorUbicacion">DetectorUbicacion</a></dd>
+<dd><a href="depaseguro.services.detectores.html#Detector">Detector</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DetectorUbicacion-evaluar"><strong>evaluar</strong></a>(self, ctx)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.services.detectores.html#Detector">Detector</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DETECTORES</strong> = (&lt;depaseguro.services.detectores.DetectorPrecio object&gt;, &lt;depaseguro.services.detectores.DetectorImagenes object&gt;, &lt;depaseguro.services.detectores.DetectorContacto object&gt;, &lt;depaseguro.services.detectores.DetectorDocumentos object&gt;, &lt;depaseguro.services.detectores.DetectorCondiciones object&gt;, &lt;depaseguro.services.detectores.DetectorTexto object&gt;, &lt;depaseguro.services.detectores.DetectorUbicacion object&gt;, &lt;depaseguro.services.detectores.DetectorReportes object&gt;)<br>
+<strong>__annotations__</strong> = {'DETECTORES': 'tuple[Detector, ...]'}<br>
+<strong>__conditional_annotations__</strong> = set()</td></tr></table>
+</body></html>

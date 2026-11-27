@@ -1,0 +1,15 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Redes de cuentas{% endblock %}
+{% block admin %}
+<h1>Redes de cuentas relacionadas</h1>
+<p class="lead">Grupos de avisos de distintas cuentas unidos por el mismo teléfono, foto o documento.</p>
+<p class="nota">Un grupo puede incluir a un dueño legítimo cuyas fotos fueron copiadas. Revisa cada caso antes de tomar una decisión.</p>
+{% for red in redes %}
+<div class="caja">
+  <h2>{{ red.cuentas|length }} cuentas · {{ red.avisos|length }} avisos</h2>
+  <p>{% for m in red.motivos %}<span class="chip">{{ m }}</span>{% endfor %}</p>
+  <p><b>Cuentas:</b> {{ red.cuentas|join(', ') }}</p>
+  <ul>{% for a in red.avisos %}<li><a href="{{ url_for('publico.detalle', inmueble_id=a.id) }}">{{ a.titulo }}</a> ({{ a.trust_score }} puntos)</li>{% endfor %}</ul>
+</div>
+{% else %}<div class="caja"><p>No se encontraron redes.</p></div>{% endfor %}
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.analisis_red</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.analisis_red</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Canalisis_red.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\analisis_red.py</a></td></tr></table>
+    <p><span class="code">Análisis&nbsp;de&nbsp;zonas&nbsp;(datos&nbsp;oficiales)&nbsp;y&nbsp;de&nbsp;redes&nbsp;de&nbsp;cuentas&nbsp;relacionadas.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pandas.html">pandas</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.services.analisis_red.html#ConjuntosDisjuntos">ConjuntosDisjuntos</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConjuntosDisjuntos">class <strong>ConjuntosDisjuntos</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ConjuntosDisjuntos">ConjuntosDisjuntos</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Estructura&nbsp;Union-Find:&nbsp;agrupa&nbsp;avisos&nbsp;conectados&nbsp;por&nbsp;teléfono,&nbsp;foto&nbsp;o&nbsp;documento.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ConjuntosDisjuntos-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ConjuntosDisjuntos-buscar"><strong>buscar</strong></a>(self, elemento)</dt></dl>
+
+<dl><dt><a name="ConjuntosDisjuntos-unir"><strong>unir</strong></a>(self, a, b) -&gt; None</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-contexto_distrito"><strong>contexto_distrito</strong></a>(conexion, ubigeo: str) -&gt; dict | None</dt></dl>
+ <dl><dt><a name="-detectar_redes"><strong>detectar_redes</strong></a>(conexion) -&gt; list[dict]</dt><dd><span class="code">Encuentra&nbsp;grupos&nbsp;de&nbsp;avisos&nbsp;de&nbsp;distintas&nbsp;cuentas&nbsp;unidos&nbsp;por&nbsp;un&nbsp;mismo&nbsp;dato.</span></dd></dl>
+ <dl><dt><a name="-ranking_zonas"><strong>ranking_zonas</strong></a>(conexion, meses: int = 12) -&gt; list[dict]</dt><dd><span class="code">Resume&nbsp;los&nbsp;últimos&nbsp;meses&nbsp;por&nbsp;distrito,&nbsp;con&nbsp;tasa&nbsp;por&nbsp;10&nbsp;000&nbsp;habitantes.</span></dd></dl>
+ <dl><dt><a name="-resumen_anual_estafas"><strong>resumen_anual_estafas</strong></a>(conexion) -&gt; list[dict]</dt></dl>
+ <dl><dt><a name="-resumen_ciberdelitos"><strong>resumen_ciberdelitos</strong></a>(conexion) -&gt; list[dict]</dt></dl>
+ <dl><dt><a name="-serie_estafas"><strong>serie_estafas</strong></a>(conexion, ubigeo: str | None = None) -&gt; dict</dt><dd><span class="code">Serie&nbsp;mensual&nbsp;de&nbsp;estafas&nbsp;y&nbsp;proyección&nbsp;de&nbsp;los&nbsp;siguientes&nbsp;tres&nbsp;meses.</span></dd></dl>
+ <dl><dt><a name="-ultimo_periodo"><strong>ultimo_periodo</strong></a>(conexion) -&gt; tuple[int, int] | None</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>MODALIDADES_PATRIMONIO</strong> = ('Estafa', 'Robo', 'Hurto', 'Extorsión')</td></tr></table>
+</body></html>

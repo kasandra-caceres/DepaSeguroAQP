@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block titulo %}Crear cuenta{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor" style="max-width:560px">
+    <form class="caja" method="post">
+      <h1>Crear cuenta</h1>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label>Quiero
+        <select name="rol" data-rol>
+          <option value="estudiante" {{ 'selected' if datos.get('rol') == 'estudiante' }}>Buscar vivienda</option>
+          <option value="arrendador" {{ 'selected' if datos.get('rol') == 'arrendador' }}>Publicar un inmueble</option>
+        </select>
+      </label>
+      <label>Nombre completo <input name="nombre" required value="{{ datos.get('nombre', '') }}"></label>
+      <label>Correo <input type="email" name="email" required value="{{ datos.get('email', '') }}" autocomplete="username"></label>
+      <label>Celular <input name="telefono" inputmode="tel" value="{{ datos.get('telefono', '') }}"></label>
+      <div class="campos-2" data-campos-arrendador>
+        <label>Documento
+          <select name="tipo_doc"><option value="DNI">DNI</option><option value="RUC">RUC</option></select>
+        </label>
+        <label>Número <input name="num_doc" inputmode="numeric" value="{{ datos.get('num_doc', '') }}"></label>
+      </div>
+      <label>Contraseña <input type="password" name="password" required minlength="8" autocomplete="new-password"></label>
+      <p class="nota">Usa al menos 8 caracteres, con letras y números.</p>
+      <button class="boton" type="submit">Crear cuenta</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

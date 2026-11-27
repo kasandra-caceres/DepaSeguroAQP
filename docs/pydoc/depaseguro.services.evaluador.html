@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.evaluador</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.evaluador</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Cevaluador.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\evaluador.py</a></td></tr></table>
+    <p><span class="code">Evaluación&nbsp;de&nbsp;avisos:&nbsp;reúne&nbsp;datos,&nbsp;ejecuta&nbsp;detectores,&nbsp;aplica&nbsp;reglas&nbsp;y&nbsp;calcula&nbsp;el&nbsp;Trust&nbsp;Score.<br>
+&nbsp;<br>
+``<a href="#EvaluadorInmueble">EvaluadorInmueble</a>``&nbsp;es&nbsp;una&nbsp;fachada&nbsp;(patrón&nbsp;Facade):&nbsp;quien&nbsp;la&nbsp;usa&nbsp;pide&nbsp;evaluar<br>
+un&nbsp;aviso&nbsp;sin&nbsp;conocer&nbsp;detectores,&nbsp;reglas&nbsp;ni&nbsp;estadística.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.services.evaluador.html#EvaluadorInmueble">EvaluadorInmueble</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EvaluadorInmueble">class <strong>EvaluadorInmueble</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EvaluadorInmueble">EvaluadorInmueble</a>(conexion)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="EvaluadorInmueble-__init__"><strong>__init__</strong></a>(self, conexion) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="EvaluadorInmueble-construir_contexto"><strong>construir_contexto</strong></a>(self, inmueble_id: int) -&gt; ContextoEvaluacion</dt></dl>
+
+<dl><dt><a name="EvaluadorInmueble-evaluar"><strong>evaluar</strong></a>(self, inmueble_id: int, notificar: bool = True) -&gt; ResultadoEvaluacion</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-calcular_score"><strong>calcular_score</strong></a>(ctx: ContextoEvaluacion, critico: bool) -&gt; tuple[int, tuple[ComponenteScore, ...]]</dt></dl>
+ <dl><dt><a name="-detalle_evaluacion"><strong>detalle_evaluacion</strong></a>(conexion, inmueble_id: int) -&gt; dict | None</dt><dd><span class="code">Prepara&nbsp;la&nbsp;última&nbsp;evaluación&nbsp;guardada&nbsp;para&nbsp;mostrarla&nbsp;en&nbsp;pantalla.</span></dd></dl>
+ <dl><dt><a name="-inferir"><strong>inferir</strong></a>(
+    inmueble_id: int,
+    hallazgos: list[Hallazgo],
+    contexto: ContextoEvaluacion
+) -&gt; dict</dt><dd><span class="code">Convierte&nbsp;hallazgos&nbsp;en&nbsp;hechos&nbsp;y&nbsp;consulta&nbsp;la&nbsp;base&nbsp;de&nbsp;conocimiento.</span></dd></dl>
+ <dl><dt><a name="-puntuar_comunidad"><strong>puntuar_comunidad</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt><dd><span class="code">Promedio&nbsp;bayesiano:&nbsp;pocas&nbsp;reseñas&nbsp;no&nbsp;pesan&nbsp;tanto&nbsp;como&nbsp;muchas.</span></dd></dl>
+ <dl><dt><a name="-puntuar_condiciones"><strong>puntuar_condiciones</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt></dl>
+ <dl><dt><a name="-puntuar_contacto"><strong>puntuar_contacto</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt></dl>
+ <dl><dt><a name="-puntuar_documentos"><strong>puntuar_documentos</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt></dl>
+ <dl><dt><a name="-puntuar_identidad"><strong>puntuar_identidad</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt></dl>
+ <dl><dt><a name="-puntuar_imagenes"><strong>puntuar_imagenes</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt></dl>
+ <dl><dt><a name="-puntuar_precio"><strong>puntuar_precio</strong></a>(ctx: ContextoEvaluacion) -&gt; ComponenteScore</dt></dl>
+ <dl><dt><a name="-reduce"><strong>reduce</strong></a>(function, iterable, /, initial=&lt;unrepresentable&gt;)</dt><dd><span class="code">Apply&nbsp;a&nbsp;function&nbsp;of&nbsp;two&nbsp;arguments&nbsp;cumulatively&nbsp;to&nbsp;the&nbsp;items&nbsp;of&nbsp;an&nbsp;iterable,&nbsp;from&nbsp;left&nbsp;to&nbsp;right.<br>
+&nbsp;<br>
+This&nbsp;effectively&nbsp;reduces&nbsp;the&nbsp;iterable&nbsp;to&nbsp;a&nbsp;single&nbsp;value.&nbsp;&nbsp;If&nbsp;initial&nbsp;is<br>
+present,&nbsp;it&nbsp;is&nbsp;placed&nbsp;before&nbsp;the&nbsp;items&nbsp;of&nbsp;the&nbsp;iterable&nbsp;in&nbsp;the<br>
+calculation,&nbsp;and&nbsp;serves&nbsp;as&nbsp;a&nbsp;default&nbsp;when&nbsp;the&nbsp;iterable&nbsp;is&nbsp;empty.<br>
+&nbsp;<br>
+For&nbsp;example,&nbsp;<a href="#-reduce">reduce</a>(lambda&nbsp;x,&nbsp;y:&nbsp;x+y,&nbsp;[1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5])<br>
+calculates&nbsp;((((1&nbsp;+&nbsp;2)&nbsp;+&nbsp;3)&nbsp;+&nbsp;4)&nbsp;+&nbsp;5).</span></dd></dl>
+ <dl><dt><a name="-reevaluar_todos"><strong>reevaluar_todos</strong></a>(conexion, notificar: bool = False) -&gt; int</dt><dd><span class="code">Recalcula&nbsp;todos&nbsp;los&nbsp;avisos&nbsp;activos;&nbsp;se&nbsp;usa&nbsp;tras&nbsp;leer&nbsp;nuevas&nbsp;fuentes&nbsp;o&nbsp;moderar.</span></dd></dl>
+ <dl><dt><a name="-tipo_cambio_vigente"><strong>tipo_cambio_vigente</strong></a>(conexion) -&gt; float</dt><dd><span class="code">Último&nbsp;tipo&nbsp;de&nbsp;cambio&nbsp;leído&nbsp;de&nbsp;BCRP,&nbsp;o&nbsp;el&nbsp;valor&nbsp;de&nbsp;respaldo&nbsp;si&nbsp;nunca&nbsp;se&nbsp;leyó.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DETECTORES</strong> = (&lt;depaseguro.services.detectores.DetectorPrecio object&gt;, &lt;depaseguro.services.detectores.DetectorImagenes object&gt;, &lt;depaseguro.services.detectores.DetectorContacto object&gt;, &lt;depaseguro.services.detectores.DetectorDocumentos object&gt;, &lt;depaseguro.services.detectores.DetectorCondiciones object&gt;, &lt;depaseguro.services.detectores.DetectorTexto object&gt;, &lt;depaseguro.services.detectores.DetectorUbicacion object&gt;, &lt;depaseguro.services.detectores.DetectorReportes object&gt;)<br>
+<strong>PUNTUADORES</strong> = (&lt;function puntuar_documentos&gt;, &lt;function puntuar_identidad&gt;, &lt;function puntuar_precio&gt;, &lt;function puntuar_imagenes&gt;, &lt;function puntuar_contacto&gt;, &lt;function puntuar_condiciones&gt;, &lt;function puntuar_comunidad&gt;)<br>
+<strong>TEXTO_PATRON</strong> = {'adelanto_fantasma': 'Adelanto por un inmueble que podría no existir', 'condiciones_abusivas': 'Condiciones abusivas sin contrato', 'contacto_reincidente': 'Contacto vinculado a casos anteriores', 'documento_falso': 'Documentación no aceptada', 'ganga_irreal': 'Oferta demasiado buena para ser real', 'inmueble_clonado': 'Aviso armado con fotos ajenas', 'ubicacion_dudosa': 'Ubicación sin respaldo'}<br>
+<strong>TEXTO_RECOMENDACION</strong> = {'buscar_alternativas': 'Busca otra opción: este aviso reúne señales graves.', 'continuar_con_visita': 'Tiene buenas señales; confirma todo en una visita presencial.', 'exigir_contrato': 'Exige un contrato escrito antes de entregar dinero.', 'no_transferir': 'No transfieras dinero por este aviso.', 'visitar_antes': 'Visita el lugar y conoce al arrendador antes de pagar.'}</td></tr></table>
+</body></html>

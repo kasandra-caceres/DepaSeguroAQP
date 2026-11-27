@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.alertas</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.alertas</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Calertas.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\alertas.py</a></td></tr></table>
+    <p><span class="code">Generación&nbsp;de&nbsp;alertas&nbsp;automáticas&nbsp;a&nbsp;partir&nbsp;de&nbsp;evaluaciones&nbsp;y&nbsp;datos&nbsp;oficiales.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-alertar_busquedas"><strong>alertar_busquedas</strong></a>(
+    conexion,
+    resultado: ResultadoEvaluacion,
+    anterior: dict,
+    inmueble: dict
+) -&gt; None</dt><dd><span class="code">Avisa&nbsp;a&nbsp;estudiantes&nbsp;con&nbsp;una&nbsp;búsqueda&nbsp;guardada&nbsp;que&nbsp;coincide&nbsp;con&nbsp;el&nbsp;aviso.</span></dd></dl>
+ <dl><dt><a name="-alertar_riesgo"><strong>alertar_riesgo</strong></a>(
+    conexion,
+    resultado: ResultadoEvaluacion,
+    anterior: dict,
+    inmueble: dict
+) -&gt; None</dt><dd><span class="code">Crea&nbsp;una&nbsp;alerta&nbsp;para&nbsp;moderación&nbsp;cuando&nbsp;aparece&nbsp;una&nbsp;señal&nbsp;alta&nbsp;o&nbsp;crítica.</span></dd></dl>
+ <dl><dt><a name="-alertar_seguidores"><strong>alertar_seguidores</strong></a>(
+    conexion,
+    resultado: ResultadoEvaluacion,
+    anterior: dict,
+    inmueble: dict
+) -&gt; None</dt><dd><span class="code">Avisa&nbsp;a&nbsp;quienes&nbsp;guardaron&nbsp;el&nbsp;inmueble&nbsp;si&nbsp;su&nbsp;puntaje&nbsp;cae&nbsp;de&nbsp;forma&nbsp;importante.</span></dd></dl>
+ <dl><dt><a name="-alertas_zona"><strong>alertas_zona</strong></a>(conexion) -&gt; int</dt><dd><span class="code">Compara&nbsp;estafas&nbsp;denunciadas&nbsp;en&nbsp;los&nbsp;últimos&nbsp;3&nbsp;meses&nbsp;contra&nbsp;el&nbsp;mismo&nbsp;periodo&nbsp;del&nbsp;año&nbsp;anterior.</span></dd></dl>
+</td></tr></table>
+</body></html>

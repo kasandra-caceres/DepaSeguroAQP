@@ -1,0 +1,24 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Documentos{% endblock %}
+{% block admin %}
+<h1>Documentos por revisar</h1>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Aviso</th><th>Arrendador</th><th>Tipo</th><th>Archivo</th><th>Decisión</th></tr></thead>
+    {% for d in documentos %}
+    <tr>
+      <td>{{ d.titulo }}</td><td>{{ d.arrendador }}</td><td>{{ d.tipo.replace('_', ' ') }}</td>
+      <td><a href="{{ url_for('admin.archivo_documento', archivo=d.archivo) }}" target="_blank">Abrir</a></td>
+      <td>
+        <form method="post" action="{{ url_for('admin.revisar', documento_id=d.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input name="observacion" placeholder="Observación" aria-label="Observación">
+          <button class="boton boton-chico" name="estado" value="aprobado" type="submit">Aprobar</button>
+          <button class="boton boton-peligro boton-chico" name="estado" value="rechazado" type="submit">Rechazar</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}<tr><td colspan="5">No hay documentos pendientes.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.busqueda</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.busqueda</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Cbusqueda.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\busqueda.py</a></td></tr></table>
+    <p><span class="code">Búsqueda&nbsp;y&nbsp;recomendación&nbsp;por&nbsp;cercanía&nbsp;a&nbsp;campus,&nbsp;construida&nbsp;con&nbsp;funciones&nbsp;de&nbsp;orden&nbsp;superior.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.services.busqueda.html#FiltrosBusqueda">FiltrosBusqueda</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FiltrosBusqueda">class <strong>FiltrosBusqueda</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FiltrosBusqueda">FiltrosBusqueda</a>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ubigeo:&nbsp;str&nbsp;|&nbsp;None&nbsp;=&nbsp;None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tipo:&nbsp;str&nbsp;|&nbsp;None&nbsp;=&nbsp;None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;precio_max:&nbsp;float&nbsp;|&nbsp;None&nbsp;=&nbsp;None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;trust_min:&nbsp;int&nbsp;|&nbsp;None&nbsp;=&nbsp;None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;campus:&nbsp;dict&nbsp;|&nbsp;None&nbsp;=&nbsp;None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radio_km:&nbsp;float&nbsp;|&nbsp;None&nbsp;=&nbsp;None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;orden:&nbsp;str&nbsp;=&nbsp;'compatibilidad'<br>
+)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<a href="#FiltrosBusqueda">FiltrosBusqueda</a>(ubigeo:&nbsp;'str&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;tipo:&nbsp;'str&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;precio_max:&nbsp;'float&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;trust_min:&nbsp;'int&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;campus:&nbsp;'dict&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;radio_km:&nbsp;'float&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;orden:&nbsp;'str'&nbsp;=&nbsp;'compatibilidad')<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="FiltrosBusqueda-__delattr__"><strong>__delattr__</strong></a>(self, name)</dt><dd><span class="code">Implement&nbsp;delattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="FiltrosBusqueda-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="FiltrosBusqueda-__hash__"><strong>__hash__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;hash(self).</span></dd></dl>
+
+<dl><dt><a name="FiltrosBusqueda-__init__"><strong>__init__</strong></a>(
+    self,
+    ubigeo: str | None = None,
+    tipo: str | None = None,
+    precio_max: float | None = None,
+    trust_min: int | None = None,
+    campus: dict | None = None,
+    radio_km: float | None = None,
+    orden: str = 'compatibilidad'
+) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FiltrosBusqueda-__replace__"><strong>__replace__</strong></a> = _replace(self, /, **changes)<span class="grey"><span class="heading-text"> from <a href="dataclasses.html">dataclasses</a></span></span></dt></dl>
+
+<dl><dt><a name="FiltrosBusqueda-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="FiltrosBusqueda-__setattr__"><strong>__setattr__</strong></a>(self, name, value)</dt><dd><span class="code">Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'campus': 'dict | None', 'orden': 'str', 'precio_max': 'float | None', 'radio_km': 'float | None', 'tipo': 'str | None', 'trust_min': 'int | None', 'ubigeo': 'str | None'}</dl>
+
+<dl><dt><strong>__dataclass_fields__</strong> = {'campus': Field(name='campus',type='dict | None',default=N...xy({}),kw_only=False,doc=None,_field_type=_FIELD), 'orden': Field(name='orden',type='str',default='compatibi...xy({}),kw_only=False,doc=None,_field_type=_FIELD), 'precio_max': Field(name='precio_max',type='float | None',defa...xy({}),kw_only=False,doc=None,_field_type=_FIELD), 'radio_km': Field(name='radio_km',type='float | None',defaul...xy({}),kw_only=False,doc=None,_field_type=_FIELD), 'tipo': Field(name='tipo',type='str | None',default=None...xy({}),kw_only=False,doc=None,_field_type=_FIELD), 'trust_min': Field(name='trust_min',type='int | None',default...xy({}),kw_only=False,doc=None,_field_type=_FIELD), 'ubigeo': Field(name='ubigeo',type='str | None',default=No...xy({}),kw_only=False,doc=None,_field_type=_FIELD)}</dl>
+
+<dl><dt><strong>__dataclass_params__</strong> = _DataclassParams(init=True,repr=True,eq=True,ord...rue,kw_only=False,slots=False,weakref_slot=False)</dl>
+
+<dl><dt><strong>__match_args__</strong> = ('ubigeo', 'tipo', 'precio_max', 'trust_min', 'campus', 'radio_km', 'orden')</dl>
+
+<dl><dt><strong>campus</strong> = None</dl>
+
+<dl><dt><strong>orden</strong> = 'compatibilidad'</dl>
+
+<dl><dt><strong>precio_max</strong> = None</dl>
+
+<dl><dt><strong>radio_km</strong> = None</dl>
+
+<dl><dt><strong>tipo</strong> = None</dl>
+
+<dl><dt><strong>trust_min</strong> = None</dl>
+
+<dl><dt><strong>ubigeo</strong> = None</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-agregar_compatibilidad"><strong>agregar_compatibilidad</strong></a>(filtros: FiltrosBusqueda)</dt><dd><span class="code">Puntaje&nbsp;0-100:&nbsp;confianza&nbsp;50&nbsp;%,&nbsp;cercanía&nbsp;30&nbsp;%&nbsp;y&nbsp;precio&nbsp;20&nbsp;%.</span></dd></dl>
+ <dl><dt><a name="-agregar_distancia"><strong>agregar_distancia</strong></a>(campus)</dt><dd><span class="code">Devuelve&nbsp;una&nbsp;función&nbsp;que&nbsp;añade&nbsp;la&nbsp;distancia&nbsp;sin&nbsp;modificar&nbsp;el&nbsp;aviso&nbsp;original.</span></dd></dl>
+ <dl><dt><a name="-buscar"><strong>buscar</strong></a>(avisos: list[dict], filtros: FiltrosBusqueda) -&gt; list[dict]</dt></dl>
+ <dl><dt><a name="-campus_cercanos"><strong>campus_cercanos</strong></a>(aviso: dict, campus: list[dict], limite: int = 3) -&gt; list[dict]</dt></dl>
+ <dl><dt><a name="-por_confianza"><strong>por_confianza</strong></a>(minimo)</dt></dl>
+ <dl><dt><a name="-por_distrito"><strong>por_distrito</strong></a>(ubigeo)</dt></dl>
+ <dl><dt><a name="-por_precio"><strong>por_precio</strong></a>(maximo)</dt></dl>
+ <dl><dt><a name="-por_radio"><strong>por_radio</strong></a>(radio)</dt></dl>
+ <dl><dt><a name="-por_tipo"><strong>por_tipo</strong></a>(tipo)</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ORDENES</strong> = {'cercania': (&lt;function &lt;lambda&gt;&gt;, False), 'compatibilidad': (&lt;function &lt;lambda&gt;&gt;, True), 'confianza': (&lt;function &lt;lambda&gt;&gt;, True), 'precio': (&lt;function &lt;lambda&gt;&gt;, False)}</td></tr></table>
+</body></html>

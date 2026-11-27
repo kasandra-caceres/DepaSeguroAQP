@@ -1,0 +1,36 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Fuentes{% endblock %}
+{% block admin %}
+<div class="acciones" style="justify-content:space-between">
+  <h1>Lectura automática de fuentes</h1>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button class="boton" type="submit">Actualizar todas ahora</button>
+  </form>
+</div>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Fuente</th><th>Tipo</th><th>Último éxito</th><th>Estado</th><th>Registros</th><th>Mensaje</th><th></th></tr></thead>
+    {% for f in fuentes %}
+    <tr>
+      <td>{{ f.nombre }}</td><td>{{ f.categoria }}</td><td>{{ f.ultimo_exito|fecha or '-' }}</td>
+      <td class="estado-{{ f.estado }}">{{ f.estado.replace('_', ' ') }}</td><td>{{ 'Bajo demanda' if f.clave == 'osm_nominatim' else f.registros }}</td><td>{{ f.mensaje or '-' }}</td>
+      <td>
+        <form method="post">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="clave" value="{{ f.clave }}">
+          <button class="boton boton-sec boton-chico" type="submit">Leer</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<h2>Historial</h2>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Fuente</th><th>Inicio</th><th>Fin</th><th>Estado</th><th>Registros</th></tr></thead>
+    {% for h in historial %}<tr><td>{{ h.fuente }}</td><td>{{ h.inicio }}</td><td>{{ h.fin or '-' }}</td><td>{{ h.estado.replace('_', ' ') }}</td><td>{{ 'Bajo demanda' if h.fuente == 'osm_nominatim' else h.registros }}</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

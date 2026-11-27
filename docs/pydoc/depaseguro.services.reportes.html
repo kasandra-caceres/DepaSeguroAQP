@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.reportes</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.reportes</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Creportes.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\reportes.py</a></td></tr></table>
+    <p><span class="code">Generación&nbsp;de&nbsp;reportes&nbsp;en&nbsp;PDF,&nbsp;Excel&nbsp;y&nbsp;CSV.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="reportlab.lib.colors.html">reportlab.lib.colors</a><br>
+</td><td class="multicolumn"><a href="io.html">io</a><br>
+</td><td class="multicolumn"><a href="pandas.html">pandas</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-csv_alertas"><strong>csv_alertas</strong></a>(db) -&gt; bytes</dt></dl>
+ <dl><dt><a name="-excel_catalogo"><strong>excel_catalogo</strong></a>(db) -&gt; bytes</dt><dd><span class="code">Libro&nbsp;Excel&nbsp;con&nbsp;varias&nbsp;hojas&nbsp;para&nbsp;análisis&nbsp;fuera&nbsp;de&nbsp;la&nbsp;plataforma.</span></dd></dl>
+ <dl><dt><a name="-indicadores_panel"><strong>indicadores_panel</strong></a>(db) -&gt; dict</dt><dd><span class="code">Valores&nbsp;agregados&nbsp;para&nbsp;el&nbsp;panel&nbsp;de&nbsp;administración.</span></dd></dl>
+ <dl><dt><a name="-pdf_contrato"><strong>pdf_contrato</strong></a>(datos: dict) -&gt; bytes</dt><dd><span class="code">Modelo&nbsp;referencial&nbsp;de&nbsp;contrato&nbsp;de&nbsp;arrendamiento&nbsp;para&nbsp;vivienda&nbsp;estudiantil.</span></dd></dl>
+ <dl><dt><a name="-pdf_expediente"><strong>pdf_expediente</strong></a>(db, reporte_id: int) -&gt; bytes</dt><dd><span class="code">Ordena&nbsp;la&nbsp;evidencia&nbsp;de&nbsp;un&nbsp;caso&nbsp;para&nbsp;presentarla&nbsp;ante&nbsp;la&nbsp;autoridad.</span></dd></dl>
+ <dl><dt><a name="-pdf_ficha_inmueble"><strong>pdf_ficha_inmueble</strong></a>(db, inmueble_id: int) -&gt; bytes</dt><dd><span class="code">Ficha&nbsp;de&nbsp;confiabilidad&nbsp;que&nbsp;el&nbsp;estudiante&nbsp;puede&nbsp;guardar&nbsp;o&nbsp;compartir.</span></dd></dl>
+ <dl><dt><a name="-pdf_riesgo_distritos"><strong>pdf_riesgo_distritos</strong></a>(db) -&gt; bytes</dt><dd><span class="code">Reporte&nbsp;gerencial:&nbsp;oferta&nbsp;evaluada&nbsp;por&nbsp;distrito&nbsp;y&nbsp;contexto&nbsp;oficial&nbsp;de&nbsp;denuncias.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>A4</strong> = (595.2755905511812, 841.8897637795277)<br>
+<strong>MOTIVOS</strong> = {'cobro_indebido': 'Cobro indebido', 'condiciones_abusivas': 'Condiciones abusivas', 'fotos_falsas': 'Fotos falsas o copiadas', 'inexistente': 'El inmueble no existe', 'otro': 'Otro motivo', 'suplantacion': 'Suplantación del dueño'}<br>
+<strong>PIZARRA</strong> = Color(.133333,.188235,.235294,1)<br>
+<strong>SILLAR</strong> = Color(.956863,.937255,.901961,1)<br>
+<strong>TA_JUSTIFY</strong> = 4<br>
+<strong>TERRACOTA</strong> = Color(.705882,.32549,.164706,1)<br>
+<strong>TIPOS</strong> = {'cuarto': 'Cuarto', 'departamento': 'Departamento', 'minidepartamento': 'Minidepartamento', 'pension': 'Pensión con alimentos'}<br>
+<strong>cm</strong> = 28.346456692913385</td></tr></table>
+</body></html>

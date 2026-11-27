@@ -1,0 +1,25 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Usuarios{% endblock %}
+{% block admin %}
+<h1>Usuarios</h1>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Documento</th><th>Verificado</th><th>Activo</th></tr></thead>
+    {% for u in usuarios %}
+    <tr>
+      <td>{{ u.nombre }}</td><td>{{ u.email }}</td><td>{{ u.rol }}</td><td>{{ u.tipo_doc or '-' }} {{ u.num_doc or '' }}</td>
+      {% for campo in ['verificado', 'activo'] %}
+      <td>
+        <form method="post" action="{{ url_for('admin.actualizar_usuario', usuario_id=u.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="campo" value="{{ campo }}">
+          <input type="hidden" name="valor" value="{{ 0 if u[campo] else 1 }}">
+          <button class="boton boton-sec boton-chico" type="submit">{{ 'Sí' if u[campo] else 'No' }}</button>
+        </form>
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

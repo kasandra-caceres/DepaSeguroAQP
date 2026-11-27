@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.ingestion.fuentes</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.ingestion.html" class="white">ingestion</a>.fuentes</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cingestion%5Cfuentes.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\ingestion\fuentes.py</a></td></tr></table>
+    <p><span class="code">Lectura&nbsp;automática&nbsp;de&nbsp;fuentes&nbsp;del&nbsp;Estado&nbsp;y&nbsp;de&nbsp;organizaciones&nbsp;sin&nbsp;fines&nbsp;de&nbsp;lucro.<br>
+&nbsp;<br>
+``<a href="#FuenteDatos">FuenteDatos</a>``&nbsp;aplica&nbsp;el&nbsp;patrón&nbsp;Template&nbsp;Method:&nbsp;``ejecutar``&nbsp;fija&nbsp;el&nbsp;proceso<br>
+(descargar,&nbsp;transformar,&nbsp;cargar&nbsp;y&nbsp;registrar)&nbsp;y&nbsp;cada&nbsp;subclase&nbsp;resuelve&nbsp;solo&nbsp;lo<br>
+propio&nbsp;de&nbsp;su&nbsp;fuente.&nbsp;Si&nbsp;una&nbsp;fuente&nbsp;falla,&nbsp;el&nbsp;sistema&nbsp;sigue&nbsp;usando&nbsp;lo&nbsp;último&nbsp;leído.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="hashlib.html">hashlib</a><br>
+<a href="io.html">io</a><br>
+</td><td class="multicolumn"><a href="pandas.html">pandas</a><br>
+<a href="re.html">re</a><br>
+</td><td class="multicolumn"><a href="requests.html">requests</a><br>
+<a href="time.html">time</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteBCRP">FuenteBCRP</a>
+</dt><dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteCiberdelitos">FuenteCiberdelitos</a>
+</dt><dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteDenuncias">FuenteDenuncias</a>
+</dt><dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteOpenStreetMap">FuenteOpenStreetMap</a>
+</dt><dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteSunedu">FuenteSunedu</a>
+</dt><dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteTransparencia">FuenteTransparencia</a>
+</dt><dt class="heading-text"><a href="depaseguro.ingestion.fuentes.html#FuenteWikidata">FuenteWikidata</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteBCRP">class <strong>FuenteBCRP</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteBCRP">FuenteBCRP</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Tipo&nbsp;de&nbsp;cambio&nbsp;e&nbsp;índice&nbsp;de&nbsp;precios&nbsp;desde&nbsp;la&nbsp;API&nbsp;del&nbsp;Banco&nbsp;Central&nbsp;de&nbsp;Reserva.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteBCRP">FuenteBCRP</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteBCRP-cargar"><strong>cargar</strong></a>(self, crudo: dict) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteBCRP-obtener"><strong>obtener</strong></a>(self) -&gt; dict</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>clave</strong> = 'bcrp'</dl>
+
+<dl><dt><strong>entidad</strong> = 'Banco Central de Reserva del Perú'</dl>
+
+<dl><dt><strong>nombre</strong> = 'BCRPData: tipo de cambio e IPC'</dl>
+
+<dl><dt><strong>url</strong> = 'https://estadisticas.bcrp.gob.pe/estadisticas/series/'</dl>
+
+<dl><dt><strong>uso</strong> = 'Convierte avisos en dólares a soles y actualiza precios antiguos.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteBCRP-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteBCRP-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteBCRP-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteBCRP-huella"><strong>huella</strong></a>(self, crudo: object) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteBCRP-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>categoria</strong> = 'estado'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteCiberdelitos">class <strong>FuenteCiberdelitos</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteCiberdelitos">FuenteCiberdelitos</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Delitos&nbsp;informáticos&nbsp;denunciados&nbsp;ante&nbsp;el&nbsp;Ministerio&nbsp;Público.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteCiberdelitos">FuenteCiberdelitos</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteCiberdelitos-cargar"><strong>cargar</strong></a>(self, crudo: list[dict]) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteCiberdelitos-guardar"><strong>guardar</strong></a>(self, tabla: pd.DataFrame) -&gt; int</dt></dl>
+
+<dl><dt><a name="FuenteCiberdelitos-obtener"><strong>obtener</strong></a>(self) -&gt; list[dict]</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>clave</strong> = 'mpfn_ciberdelitos'</dl>
+
+<dl><dt><strong>dataset</strong> = 'delitos-informáticos-denunciados-ante-el-ministerio-público-mpfn'</dl>
+
+<dl><dt><strong>entidad</strong> = 'Ministerio Público - Fiscalía de la Nación (MPFN)'</dl>
+
+<dl><dt><strong>nombre</strong> = 'Delitos informáticos denunciados'</dl>
+
+<dl><dt><strong>url</strong> = 'https://www.datosabiertos.gob.pe/dataset/delitos...-denunciados-ante-el-ministerio-p%C3%BAblico-mpfn'</dl>
+
+<dl><dt><strong>uso</strong> = 'Muestra la evolución del fraude informático y la suplantación en Arequipa.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteCiberdelitos-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteCiberdelitos-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteCiberdelitos-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteCiberdelitos-huella"><strong>huella</strong></a>(self, crudo: object) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteCiberdelitos-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>categoria</strong> = 'estado'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteDatos">class <strong>FuenteDatos</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteDatos">FuenteDatos</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteDatos-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteDatos-cargar"><strong>cargar</strong></a>(self, crudo: object) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteDatos-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteDatos-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteDatos-huella"><strong>huella</strong></a>(self, crudo: object) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteDatos-obtener"><strong>obtener</strong></a>(self) -&gt; object</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<dl><dt><a name="FuenteDatos-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'cargar', 'obtener'})</dl>
+
+<dl><dt><strong>categoria</strong> = 'estado'</dl>
+
+<dl><dt><strong>clave</strong> = ''</dl>
+
+<dl><dt><strong>entidad</strong> = ''</dl>
+
+<dl><dt><strong>nombre</strong> = ''</dl>
+
+<dl><dt><strong>url</strong> = ''</dl>
+
+<dl><dt><strong>uso</strong> = ''</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteDenuncias">class <strong>FuenteDenuncias</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteDenuncias">FuenteDenuncias</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Denuncias&nbsp;policiales&nbsp;por&nbsp;distrito&nbsp;(SIDPOL)&nbsp;publicadas&nbsp;por&nbsp;el&nbsp;MININTER.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDenuncias">FuenteDenuncias</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteDenuncias-cargar"><strong>cargar</strong></a>(self, crudo: dict) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteDenuncias-guardar"><strong>guardar</strong></a>(self, tabla: pd.DataFrame) -&gt; int</dt></dl>
+
+<dl><dt><a name="FuenteDenuncias-huella"><strong>huella</strong></a>(self, crudo: dict) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteDenuncias-obtener"><strong>obtener</strong></a>(self) -&gt; dict</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>clave</strong> = 'mininter_denuncias'</dl>
+
+<dl><dt><strong>dataset</strong> = 'denuncias-policiales-registradas-nivel-nacional-mininter'</dl>
+
+<dl><dt><strong>entidad</strong> = 'Ministerio del Interior (MININTER)'</dl>
+
+<dl><dt><strong>nombre</strong> = 'Denuncias policiales registradas a nivel nacional'</dl>
+
+<dl><dt><strong>url</strong> = 'https://www.datosabiertos.gob.pe/dataset/denuncias-policiales-registradas-nivel-nacional-mininter'</dl>
+
+<dl><dt><strong>uso</strong> = 'Calcula estafas y delitos patrimoniales por distrito y genera alertas de zona.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteDenuncias-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteDenuncias-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteDenuncias-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteDenuncias-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>categoria</strong> = 'estado'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteOpenStreetMap">class <strong>FuenteOpenStreetMap</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteOpenStreetMap">FuenteOpenStreetMap</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Verifica&nbsp;direcciones&nbsp;pendientes&nbsp;con&nbsp;Nominatim&nbsp;(OpenStreetMap&nbsp;Foundation,&nbsp;sin&nbsp;fines&nbsp;de&nbsp;lucro).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteOpenStreetMap">FuenteOpenStreetMap</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteOpenStreetMap-cargar"><strong>cargar</strong></a>(self, crudo: list[dict]) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteOpenStreetMap-geocodificar"><strong>geocodificar</strong></a>(self, consulta: str) -&gt; dict | None</dt></dl>
+
+<dl><dt><a name="FuenteOpenStreetMap-huella"><strong>huella</strong></a>(self, crudo: list[dict]) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteOpenStreetMap-obtener"><strong>obtener</strong></a>(self) -&gt; list[dict]</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>LOTE</strong> = 15</dl>
+
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>categoria</strong> = 'ong'</dl>
+
+<dl><dt><strong>clave</strong> = 'osm_nominatim'</dl>
+
+<dl><dt><strong>entidad</strong> = 'OpenStreetMap Foundation (ONG)'</dl>
+
+<dl><dt><strong>nombre</strong> = 'OpenStreetMap Nominatim'</dl>
+
+<dl><dt><strong>url</strong> = 'https://nominatim.openstreetmap.org/'</dl>
+
+<dl><dt><strong>uso</strong> = 'Comprueba que la dirección exista y corresponda al distrito declarado.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteOpenStreetMap-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteOpenStreetMap-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteOpenStreetMap-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteOpenStreetMap-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteSunedu">class <strong>FuenteSunedu</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteSunedu">FuenteSunedu</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Locales&nbsp;universitarios&nbsp;licenciados,&nbsp;con&nbsp;coordenadas&nbsp;oficiales.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteSunedu">FuenteSunedu</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteSunedu-cargar"><strong>cargar</strong></a>(self, crudo: dict) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteSunedu-guardar"><strong>guardar</strong></a>(self, tabla: pd.DataFrame) -&gt; int</dt></dl>
+
+<dl><dt><a name="FuenteSunedu-huella"><strong>huella</strong></a>(self, crudo: dict) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteSunedu-obtener"><strong>obtener</strong></a>(self) -&gt; dict</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>clave</strong> = 'sunedu_campus'</dl>
+
+<dl><dt><strong>dataset</strong> = 'sunedu-programas-académicos'</dl>
+
+<dl><dt><strong>entidad</strong> = 'Superintendencia Nacional de Educación Superior Universitaria (SUNEDU)'</dl>
+
+<dl><dt><strong>nombre</strong> = 'SUNEDU - Programas académicos'</dl>
+
+<dl><dt><strong>url</strong> = 'https://www.datosabiertos.gob.pe/dataset/sunedu-programas-acad%C3%A9micos'</dl>
+
+<dl><dt><strong>uso</strong> = 'Da la ubicación y licencia de cada campus para buscar por cercanía.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteSunedu-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteSunedu-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteSunedu-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteSunedu-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>categoria</strong> = 'estado'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteTransparencia">class <strong>FuenteTransparencia</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteTransparencia">FuenteTransparencia</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Índice&nbsp;de&nbsp;Percepción&nbsp;de&nbsp;la&nbsp;Corrupción&nbsp;de&nbsp;Transparency&nbsp;International,&nbsp;vía&nbsp;Our&nbsp;World&nbsp;in&nbsp;Data.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteTransparencia">FuenteTransparencia</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteTransparencia-cargar"><strong>cargar</strong></a>(self, crudo: str) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteTransparencia-obtener"><strong>obtener</strong></a>(self) -&gt; str</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>categoria</strong> = 'ong'</dl>
+
+<dl><dt><strong>clave</strong> = 'ti_cpi'</dl>
+
+<dl><dt><strong>entidad</strong> = 'Transparency International y Our World in Data (ONG)'</dl>
+
+<dl><dt><strong>nombre</strong> = 'Índice de Percepción de la Corrupción (Perú)'</dl>
+
+<dl><dt><strong>url</strong> = 'https://ourworldindata.org/grapher/ti-corruption-perception-index'</dl>
+
+<dl><dt><strong>uso</strong> = 'Da contexto institucional al observatorio de zonas.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteTransparencia-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteTransparencia-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteTransparencia-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteTransparencia-huella"><strong>huella</strong></a>(self, crudo: object) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteTransparencia-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FuenteWikidata">class <strong>FuenteWikidata</strong></a>(<a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FuenteWikidata">FuenteWikidata</a>(conexion,&nbsp;sesion:&nbsp;requests.Session&nbsp;|&nbsp;None&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Población&nbsp;por&nbsp;distrito&nbsp;desde&nbsp;Wikidata&nbsp;(Wikimedia&nbsp;Foundation,&nbsp;sin&nbsp;fines&nbsp;de&nbsp;lucro).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteWikidata">FuenteWikidata</a></dd>
+<dd><a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FuenteWikidata-cargar"><strong>cargar</strong></a>(self, crudo: list[dict]) -&gt; int</dt><dd><span class="code">Transforma&nbsp;y&nbsp;guarda.&nbsp;Devuelve&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;registros&nbsp;procesados.</span></dd></dl>
+
+<dl><dt><a name="FuenteWikidata-obtener"><strong>obtener</strong></a>(self) -&gt; list[dict]</dt><dd><span class="code">Descarga&nbsp;los&nbsp;datos&nbsp;crudos.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>categoria</strong> = 'ong'</dl>
+
+<dl><dt><strong>clave</strong> = 'wikidata_poblacion'</dl>
+
+<dl><dt><strong>consulta</strong> = 'SELECT ?dLabel ?pop WHERE {<span class="repr">\n</span>      ?d wdt:P131 wd...{ bd:serviceParam wikibase:language "es". }<span class="repr">\n</span>    }'</dl>
+
+<dl><dt><strong>entidad</strong> = 'Wikimedia Foundation (ONG)'</dl>
+
+<dl><dt><strong>nombre</strong> = 'Wikidata: población distrital'</dl>
+
+<dl><dt><strong>url</strong> = 'https://query.wikidata.org/'</dl>
+
+<dl><dt><strong>uso</strong> = 'Permite expresar las denuncias por cada 10 000 habitantes.'</dl>
+
+<hr>
+Methods inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><a name="FuenteWikidata-__init__"><strong>__init__</strong></a>(self, conexion, sesion: requests.Session | None = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="FuenteWikidata-descargar"><strong>descargar</strong></a>(self, url: str, **opciones) -&gt; requests.Response</dt></dl>
+
+<dl><dt><a name="FuenteWikidata-ejecutar"><strong>ejecutar</strong></a>(self) -&gt; dict</dt></dl>
+
+<dl><dt><a name="FuenteWikidata-huella"><strong>huella</strong></a>(self, crudo: object) -&gt; str</dt></dl>
+
+<dl><dt><a name="FuenteWikidata-recursos_portal"><strong>recursos_portal</strong></a>(self, dataset: str) -&gt; list[dict]</dt><dd><span class="code">Consulta&nbsp;el&nbsp;catálogo&nbsp;del&nbsp;portal;&nbsp;así&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;archivo&nbsp;más&nbsp;reciente&nbsp;aunque&nbsp;cambie&nbsp;de&nbsp;nombre.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="depaseguro.ingestion.fuentes.html#FuenteDatos">FuenteDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-ahora"><strong>ahora</strong></a>() -&gt; str</dt></dl>
+ <dl><dt><a name="-decodificar"><strong>decodificar</strong></a>(contenido: bytes) -&gt; str</dt><dd><span class="code">Los&nbsp;portales&nbsp;mezclan&nbsp;codificaciones:&nbsp;intenta&nbsp;UTF-8&nbsp;y&nbsp;luego&nbsp;Windows-1252.</span></dd></dl>
+ <dl><dt><a name="-registrar_catalogo"><strong>registrar_catalogo</strong></a>(conexion) -&gt; None</dt><dd><span class="code">Inserta&nbsp;o&nbsp;actualiza&nbsp;la&nbsp;descripción&nbsp;de&nbsp;cada&nbsp;fuente&nbsp;sin&nbsp;borrar&nbsp;su&nbsp;historial.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BCRP</strong> = 'https://estadisticas.bcrp.gob.pe/estadisticas/series/api'<br>
+<strong>FUENTES</strong> = (&lt;class 'depaseguro.ingestion.fuentes.FuenteBCRP'&gt;, &lt;class 'depaseguro.ingestion.fuentes.FuenteSunedu'&gt;, &lt;class 'depaseguro.ingestion.fuentes.FuenteDenuncias'&gt;, &lt;class 'depaseguro.ingestion.fuentes.FuenteCiberdelitos'&gt;, &lt;class 'depaseguro.ingestion.fuentes.FuenteWikidata'&gt;, &lt;class 'depaseguro.ingestion.fuentes.FuenteTransparencia'&gt;, &lt;class 'depaseguro.ingestion.fuentes.FuenteOpenStreetMap'&gt;)<br>
+<strong>MESES</strong> = {'Abr': 4, 'Ago': 8, 'Dic': 12, 'Ene': 1, 'Feb': 2, 'Jul': 7, 'Jun': 6, 'Mar': 3, 'May': 5, 'Nov': 11, ...}<br>
+<strong>PORTAL</strong> = 'https://www.datosabiertos.gob.pe'<br>
+<strong>PROVINCIA_DISTRITOS_UBIGEO</strong> = '0401'</td></tr></table>
+</body></html>

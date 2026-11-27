@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block titulo %}{{ 'Editar aviso' if aviso else 'Publicar inmueble' }}{% endblock %}
+{% block cabecera %}<link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet.css') }}">{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor" style="max-width:820px">
+    <h1>{{ 'Editar aviso' if aviso else 'Publicar inmueble' }}</h1>
+    <form method="post" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <fieldset>
+        <legend>Datos del inmueble</legend>
+        <label>Título <input name="titulo" required minlength="8" value="{{ aviso.titulo if aviso else request.form.get('titulo', '') }}"></label>
+        <label>Descripción <textarea name="descripcion" required minlength="30">{{ aviso.descripcion if aviso else request.form.get('descripcion', '') }}</textarea></label>
+        <div class="campos-2">
+          <label>Tipo
+            <select name="tipo">{% for clave, nombre in TIPOS.items() %}<option value="{{ clave }}" {{ 'selected' if aviso and aviso.tipo == clave }}>{{ nombre }}</option>{% endfor %}</select>
+          </label>
+          <label>Área (m²) <input type="number" name="area_m2" min="4" step="0.5" required value="{{ aviso.area_m2 if aviso else '' }}"></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Ubicación</legend>
+        <div class="campos-2">
+          <label>Distrito
+            <select name="ubigeo" required>{% for d in distritos %}<option value="{{ d.ubigeo }}" {{ 'selected' if aviso and aviso.ubigeo == d.ubigeo }}>{{ d.nombre|titulo }}</option>{% endfor %}</select>
+          </label>
+          <label>Dirección <input name="direccion" required value="{{ aviso.direccion if aviso else '' }}"></label>
+        </div>
+        <p class="nota">Haz clic en el mapa para marcar la ubicación exacta.</p>
+        <div id="selector" class="mini-mapa"></div>
+        <input type="hidden" id="lat" name="lat" value="{{ aviso.lat if aviso and aviso.lat is not none else '' }}">
+        <input type="hidden" id="lon" name="lon" value="{{ aviso.lon if aviso and aviso.lon is not none else '' }}">
+      </fieldset>
+      <fieldset>
+        <legend>Precio y condiciones</legend>
+        <div class="campos-3">
+          <label>Precio <input type="number" name="precio" min="1" step="0.01" required value="{{ aviso.precio if aviso else '' }}"></label>
+          <label>Moneda
+            <select name="moneda"><option value="PEN">Soles</option><option value="USD" {{ 'selected' if aviso and aviso.moneda == 'USD' }}>Dólares</option></select>
+          </label>
+          <label>Periodo
+            <select name="periodo">
+              {% for clave, nombre in [('mes','Por mes'),('semana','Por semana'),('semestre','Por semestre'),('anio','Por año')] %}
+              <option value="{{ clave }}" {{ 'selected' if aviso and aviso.periodo == clave }}>{{ nombre }}</option>
+              {% endfor %}
+            </select>
+          </label>
+          <label>Adelanto (meses) <input type="number" name="adelanto_meses" min="0" step="0.5" value="{{ aviso.adelanto_meses if aviso else 1 }}"></label>
+          <label>Garantía (meses) <input type="number" name="garantia_meses" min="0" step="0.5" value="{{ aviso.garantia_meses if aviso else 1 }}"></label>
+          <label>Celular de contacto <input name="telefono_contacto" required inputmode="tel" value="{{ aviso.telefono_contacto if aviso else (usuario.telefono or '') }}"></label>
+        </div>
+        <label class="casilla"><input type="checkbox" name="contrato_escrito" {{ 'checked' if not aviso or aviso.contrato_escrito }}> Ofrezco contrato escrito</label>
+        <label class="casilla"><input type="checkbox" name="pago_previo_visita" {{ 'checked' if aviso and aviso.pago_previo_visita }}> Pido un pago antes de la visita</label>
+      </fieldset>
+      <fieldset>
+        <legend>Servicios incluidos</legend>
+        {% for servicio in SERVICIOS %}
+        <label class="casilla"><input type="checkbox" name="servicios" value="{{ servicio }}" {{ 'checked' if servicio in servicios_aviso }}> {{ servicio }}</label>
+        {% endfor %}
+      </fieldset>
+      <fieldset>
+        <legend>Fotografías</legend>
+        <label>Agrega fotos reales del inmueble <input type="file" name="imagenes" multiple accept="image/jpeg,image/png,image/webp"></label>
+      </fieldset>
+      <button class="boton" type="submit">{{ 'Guardar cambios' if aviso else 'Registrar aviso' }}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/leaflet.js') }}"></script>
+<script>addEventListener('DOMContentLoaded', () => iniciarSelectorMapa('selector', 'lat', 'lon'));</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Contactos de riesgo{% endblock %}
+{% block admin %}
+<h1>Contactos de riesgo</h1>
+<form class="caja" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="campos-2">
+    <label>Celular <input name="telefono" required inputmode="tel"></label>
+    <label>Motivo <input name="motivo" required></label>
+  </div>
+  <button class="boton" type="submit">Agregar</button>
+</form>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Teléfono</th><th>Motivo</th><th>Reporte</th><th>Fecha</th><th></th></tr></thead>
+    {% for c in contactos %}
+    <tr>
+      <td>{{ c.telefono }}</td><td>{{ c.motivo }}</td><td>{{ c.reporte_id or '-' }}</td><td>{{ c.creado_en|fecha }}</td>
+      <td>
+        <form method="post" action="{{ url_for('admin.quitar_contacto', contacto_id=c.id) }}" data-confirmar="¿Quitar este contacto de la lista?">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="boton boton-sec boton-chico" type="submit">Quitar</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}<tr><td colspan="5">La lista está vacía.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

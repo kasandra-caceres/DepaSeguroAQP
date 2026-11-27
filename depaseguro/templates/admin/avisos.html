@@ -1,0 +1,27 @@
+{% extends "admin/base_admin.html" %}
+{% from "parciales/tarjeta.html" import insignia %}
+{% block titulo %}Avisos{% endblock %}
+{% block admin %}
+<h1>Avisos</h1>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>ID</th><th>Aviso</th><th>Arrendador</th><th>Distrito</th><th>Puntaje</th><th>Estado</th></tr></thead>
+    {% for a in avisos %}
+    <tr>
+      <td>{{ a.id }}</td>
+      <td><a href="{{ url_for('publico.detalle', inmueble_id=a.id) }}">{{ a.titulo }}</a></td>
+      <td>{{ a.arrendador }}</td><td>{{ a.distrito|titulo }}</td><td>{{ insignia(a) }}</td>
+      <td>
+        <form method="post" action="{{ url_for('admin.estado_aviso', inmueble_id=a.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <select name="estado" aria-label="Estado del aviso {{ a.id }}">
+            {% for e in ['pendiente','publicado','observado','rechazado'] %}<option {{ 'selected' if a.estado == e }}>{{ e }}</option>{% endfor %}
+          </select>
+          <button class="boton boton-chico" type="submit">Guardar</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

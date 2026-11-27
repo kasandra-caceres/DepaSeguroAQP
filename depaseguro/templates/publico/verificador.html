@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block titulo %}Verificar aviso{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor con-lateral-der">
+    <div>
+      <h1>Verifica un aviso que viste en redes</h1>
+      <p class="lead">Pega el mensaje, agrega lo que sepas y revisa las señales antes de pagar.</p>
+      <form class="caja" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label>Texto del aviso o conversación
+          <textarea name="texto" required placeholder="Pega aquí el texto completo">{{ request.form.get('texto', '') }}</textarea>
+        </label>
+        <div class="campos-3">
+          <label>Precio mensual (S/) <input type="number" name="precio_mensual" min="1" step="1" value="{{ request.form.get('precio_mensual', '') }}"></label>
+          <label>Área (m²) <input type="number" name="area_m2" min="1" step="1" value="{{ request.form.get('area_m2', '') }}"></label>
+          <label>Teléfono <input name="telefono" inputmode="tel" value="{{ request.form.get('telefono', '') }}"></label>
+        </div>
+        <div class="campos-2">
+          <label>Tipo
+            <select name="tipo">{% for clave, nombre in TIPOS.items() %}<option value="{{ clave }}" {{ 'selected' if request.form.get('tipo') == clave }}>{{ nombre }}</option>{% endfor %}</select>
+          </label>
+          <label>Distrito
+            <select name="ubigeo"><option value="">No lo sé</option>{% for d in distritos %}<option value="{{ d.ubigeo }}" {{ 'selected' if request.form.get('ubigeo') == d.ubigeo }}>{{ d.nombre|titulo }}</option>{% endfor %}</select>
+          </label>
+        </div>
+        <label>Foto del aviso (opcional) <input type="file" name="imagen" accept="image/jpeg,image/png,image/webp"></label>
+        <label class="casilla"><input type="checkbox" name="pide_pago_previo" {{ 'checked' if request.form.get('pide_pago_previo') }}> Me piden dinero antes de visitar</label>
+        <label class="casilla"><input type="checkbox" name="sin_contrato" {{ 'checked' if request.form.get('sin_contrato') }}> No me ofrecen contrato escrito</label>
+        <label class="casilla"><input type="checkbox" name="sin_visita" {{ 'checked' if request.form.get('sin_visita') }}> No me dejan visitar el lugar</label>
+        <button class="boton" type="submit">Analizar aviso</button>
+      </form>
+    </div>
+    <aside class="lateral">
+      {% if resultado %}
+      <div class="caja" aria-live="polite">
+        <div class="puntaje">
+          <span class="puntaje-valor">{{ resultado.puntaje }}</span>
+          <div><span class="nota">Puntaje de seguridad</span><br><span class="insignia {{ resultado.nivel|nivel }}">{{ resultado.nivel }}</span></div>
+        </div>
+        <hr>
+        {% for h in resultado.hallazgos %}
+        <div class="senal senal-alta"><b>{{ h.titulo }}</b><p>{{ h.detalle }}</p></div>
+        {% else %}<p>No se detectaron señales en lo que ingresaste.</p>{% endfor %}
+        {% if resultado.patrones %}<h3>Patrones deducidos</h3>{% for p in resultado.patrones %}<span class="chip">{{ p }}</span>{% endfor %}{% endif %}
+        <h3>Recomendación</h3>
+        <ul>{% for r in resultado.recomendaciones %}<li>{{ r }}</li>{% endfor %}</ul>
+      </div>
+      {% else %}
+      <div class="caja">
+        <h2>Lo que revisamos</h2>
+        <ul>
+          <li>Frases de presión y pedidos de pago</li>
+          <li>Precio frente a avisos comparables</li>
+          <li>Teléfonos con casos confirmados</li>
+          <li>Fotos repetidas mediante huellas digitales</li>
+        </ul>
+        <p class="nota">Un buen puntaje no garantiza que el aviso sea real. Siempre visita el lugar.</p>
+      </div>
+      {% endif %}
+    </aside>
+  </div>
+</section>
+{% endblock %}

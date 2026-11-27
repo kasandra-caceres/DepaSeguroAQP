@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block titulo %}Contratos{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Contratos más claros</h1>
+    <p class="lead">Revisa un contrato antes de firmarlo o genera un modelo con condiciones equilibradas.</p>
+    <div class="rejilla rejilla-2">
+      <form class="caja" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="accion" value="analizar">
+        <h2>Revisar cláusulas</h2>
+        <label>Pega el texto del contrato
+          <textarea name="texto" rows="10" required>{{ request.form.get('texto', '') }}</textarea>
+        </label>
+        <button class="boton" type="submit">Revisar contrato</button>
+        {% if analisis is not none %}
+        <div aria-live="polite">
+          <h3>Resultado</h3>
+          {% for c in analisis %}
+          <div class="senal senal-{{ c.severidad }}"><b>{{ c.titulo }}</b><p>{{ c.consejo }}</p></div>
+          {% else %}<p>No se detectaron las cláusulas riesgosas que revisamos. Igual lee todo el contrato antes de firmar.</p>{% endfor %}
+        </div>
+        {% endif %}
+      </form>
+      <form class="caja" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="accion" value="generar">
+        <h2>Generar modelo</h2>
+        <div class="campos-2">
+          <label>Arrendador(a) <input name="arrendador" required></label>
+          <label>Documento <input name="doc_arrendador" required></label>
+          <label>Estudiante <input name="estudiante" required></label>
+          <label>Documento <input name="doc_estudiante" required></label>
+        </div>
+        <label>Dirección <input name="direccion" required></label>
+        <label>Ambiente arrendado <input name="ambiente" placeholder="Cuarto con baño privado" required></label>
+        <div class="campos-3">
+          <label>Plazo (meses) <input type="number" name="plazo_meses" min="1" value="6" required></label>
+          <label>Inicio <input type="date" name="inicio" required></label>
+          <label>Día de pago <input type="number" name="dia_pago" min="1" max="31" value="5" required></label>
+          <label>Renta (S/) <input type="number" name="renta" min="1" required></label>
+          <label>Garantía (S/) <input type="number" name="garantia" min="0" required></label>
+          <label>Días para devolver <input type="number" name="dias_devolucion" min="1" value="15" required></label>
+        </div>
+        <label>Servicios incluidos <input name="servicios" placeholder="Agua, luz e internet"></label>
+        <label>Aviso para terminar (días) <input type="number" name="aviso_dias" min="1" value="30" required></label>
+        <button class="boton" type="submit">Descargar contrato PDF</button>
+        <p class="nota">Modelo referencial. Consulta a un abogado si tienes dudas.</p>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Guías{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Guías para alquilar con seguridad</h1>
+    <div class="rejilla rejilla-3">
+      {% for post in posts %}
+      <article class="tarjeta tarjeta-cuerpo">
+        <h2><a href="{{ url_for('publico.articulo', slug=post.slug) }}">{{ post.titulo }}</a></h2>
+        <p>{{ post.resumen }}</p>
+      </article>
+      {% else %}<p>Pronto publicaremos guías.</p>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

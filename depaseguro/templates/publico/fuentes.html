@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block titulo %}Fuentes de datos{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Fuentes de datos</h1>
+    <p class="lead">La plataforma lee estas fuentes de forma automática. Si una falla, sigue usando la última información válida.</p>
+    <div class="indicadores" style="margin:0 0 1.2rem">
+      <div class="indicador"><b>S/ {{ '%.3f'|format(tipo_cambio) }}</b><span>tipo de cambio venta usado para avisos en dólares</span></div>
+      {% if ipc %}<div class="indicador"><b>{{ '%.2f'|format(ipc.valor) }}</b><span>IPC Lima Metropolitana, {{ ipc.periodo }} (dic. 2021 = 100)</span></div>{% endif %}
+    </div>
+    <div class="tabla-scroll caja">
+      <table>
+        <thead><tr><th>Fuente</th><th>Tipo</th><th>Para qué se usa</th><th>Última lectura</th><th>Estado</th></tr></thead>
+        {% for f in fuentes %}
+        <tr>
+          <td><a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.nombre }}</a><br><span class="nota">{{ f.entidad }}</span></td>
+          <td>{{ 'Estado' if f.categoria == 'estado' else 'ONG' }}</td>
+          <td>{{ f.uso }}</td>
+          <td>{{ f.ultimo_exito|fecha or 'Pendiente' }}</td>
+          <td class="estado-{{ f.estado }}">{{ f.estado.replace('_', ' ') }}<br><span class="nota">{{ 'Bajo demanda' if f.clave == 'osm_nominatim' else f.registros ~ ' registros' }}</span></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

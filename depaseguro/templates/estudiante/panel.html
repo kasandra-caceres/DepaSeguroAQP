@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% from "parciales/tarjeta.html" import tarjeta %}
+{% block titulo %}Mi panel{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Hola, {{ usuario.nombre.split()[0] }}</h1>
+    <div class="rejilla rejilla-2">
+      <div class="caja">
+        <h2>Mis alertas</h2>
+        {% for a in alertas %}
+        <div class="senal senal-{{ a.severidad }}"><p>{{ a.mensaje }}</p><span class="nota">{{ a.creado_en|fecha }}</span>
+          {% if a.inmueble_id %} · <a href="{{ url_for('publico.detalle', inmueble_id=a.inmueble_id) }}">Ver aviso</a>{% endif %}</div>
+        {% else %}<p>No tienes alertas.</p>{% endfor %}
+      </div>
+      <div class="caja">
+        <h2>Búsquedas guardadas</h2>
+        {% for b in busquedas %}
+        <div class="acciones">
+          <span>{{ (b.universidad or 'Campus eliminado')|titulo }} · {{ b.radio_km }} km · hasta S/ {{ b.precio_max|int }} · mínimo {{ b.trust_min }} puntos</span>
+          <form method="post" action="{{ url_for('estudiante.eliminar_busqueda', busqueda_id=b.id) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button class="enlace" type="submit">Quitar</button>
+          </form>
+        </div>
+        {% else %}<p>Guarda una búsqueda y te avisaremos cuando aparezca una opción compatible.</p>{% endfor %}
+        <form method="post" action="{{ url_for('estudiante.guardar_busqueda') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <label>Campus
+            <select name="campus_id" required>
+              {% for c in campus %}<option value="{{ c.id }}">{{ c.universidad|titulo }} ({{ c.codigo_local }})</option>{% endfor %}
+            </select>
+          </label>
+          <div class="campos-3">
+            <label>Radio (km) <input type="number" name="radio_km" value="2" min="0.2" step="0.1"></label>
+            <label>Máximo (S/) <input type="number" name="precio_max" value="800" min="1"></label>
+            <label>Puntaje mínimo <input type="number" name="trust_min" value="60" min="0" max="100"></label>
+          </div>
+          <button class="boton boton-sec" type="submit">Guardar búsqueda</button>
+        </form>
+      </div>
+    </div>
+
+    <h2>Avisos guardados</h2>
+    <div class="rejilla rejilla-3">
+      {% for aviso in favoritos %}{{ tarjeta(aviso) }}{% else %}<p>Aún no guardaste avisos.</p>{% endfor %}
+    </div>
+
+    <h2 style="margin-top:1.6rem">Mis reportes</h2>
+    <div class="caja tabla-scroll">
+      <table>
+        <thead><tr><th>N.º</th><th>Aviso</th><th>Motivo</th><th>Estado</th><th>Expediente</th></tr></thead>
+        {% for r in reportes %}
+        <tr><td>{{ r.id }}</td><td>{{ r.titulo or 'Aviso eliminado' }}</td><td>{{ MOTIVOS[r.motivo] }}</td><td>{{ r.estado.replace('_', ' ') }}</td>
+            <td><a href="{{ url_for('estudiante.expediente', reporte_id=r.id) }}">Descargar PDF</a></td></tr>
+        {% else %}<tr><td colspan="5">No has registrado reportes.</td></tr>{% endfor %}
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

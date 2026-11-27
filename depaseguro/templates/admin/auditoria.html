@@ -1,0 +1,18 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Auditoría{% endblock %}
+{% block admin %}
+<h1>Auditoría</h1>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Entidad</th><th>Detalle</th></tr></thead>
+    {% for e in eventos %}<tr><td>{{ e.creado_en|fecha }}</td><td>{{ e.usuario or 'Sistema' }}</td><td>{{ e.accion }}</td><td>{{ e.entidad }} {{ e.entidad_id or '' }}</td><td>{{ e.detalle or '-' }}</td></tr>{% endfor %}
+  </table>
+</div>
+<h2>Mensajes de contacto</h2>
+<div class="caja tabla-scroll">
+  <table>
+    <thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Mensaje</th></tr></thead>
+    {% for c in contactos %}<tr><td>{{ c.creado_en|fecha }}</td><td>{{ c.nombre }}</td><td>{{ c.email }}</td><td>{{ c.mensaje }}</td></tr>{% else %}<tr><td colspan="4">Sin mensajes.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor admin-rejilla">
+    <nav class="admin-menu" aria-label="Administración">
+      {% for endpoint, nombre in [('admin.panel','Resumen'),('admin.avisos','Avisos'),('admin.documentos','Documentos'),('admin.lista_reportes','Reportes'),('admin.alertas','Alertas'),('admin.redes','Redes de cuentas'),('admin.lista','Contactos de riesgo'),('admin.usuarios','Usuarios'),('admin.fuentes','Fuentes'),('admin.auditoria','Auditoría')] %}
+      <a href="{{ url_for(endpoint) }}" class="{{ 'activo' if request.endpoint == endpoint }}">{{ nombre }}</a>
+      {% endfor %}
+    </nav>
+    <div>{% block admin %}{% endblock %}</div>
+  </div>
+</section>
+{% endblock %}

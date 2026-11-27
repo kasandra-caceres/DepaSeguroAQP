@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}Mapa{% endblock %}
+{% block cabecera %}<link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet.css') }}">{% endblock %}
+{% block contenido %}
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Mapa de avisos y campus</h1>
+    <p class="lead">Los puntos de color son avisos según su nivel. Los puntos oscuros son locales universitarios publicados por SUNEDU.</p>
+    <div id="mapa" class="mapa-grande"></div>
+    <p>
+      <span class="insignia n-ok">Confiable</span>
+      <span class="insignia n-medio">Precaución</span>
+      <span class="insignia n-alto">Riesgo alto</span>
+      <span class="insignia n-critico">Crítico</span>
+    </p>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/leaflet.js') }}"></script>
+<script>addEventListener('DOMContentLoaded', () => iniciarMapaGeneral('mapa'));</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% macro insignia(aviso) %}
+<span class="insignia {{ aviso.nivel_riesgo|nivel }}">{{ aviso.trust_score if aviso.trust_score is not none else '-' }} · {{ aviso.nivel_riesgo or 'Sin evaluar' }}</span>
+{% endmacro %}
+
+{% macro tarjeta(aviso) %}
+<a class="tarjeta aviso" href="{{ url_for('publico.detalle', inmueble_id=aviso.id) }}">
+  {% if aviso.portada %}
+  <img class="aviso-foto" src="{{ url_for('publico.media', archivo=aviso.portada) }}" alt="Foto de {{ aviso.titulo }}" loading="lazy">
+  {% else %}
+  <div class="aviso-foto"></div>
+  {% endif %}
+  <span class="sello">{{ insignia(aviso) }}</span>
+  <div class="tarjeta-cuerpo">
+    <h3>{{ aviso.titulo }}</h3>
+    <p class="aviso-precio">{{ aviso.precio_mensual_pen|soles }} <small class="nota">al mes</small></p>
+    <p class="aviso-meta">{{ TIPOS.get(aviso.tipo, aviso.tipo) }} · {{ aviso.distrito|titulo }} · {{ aviso.area_m2|round|int }} m²</p>
+    {% if aviso.distancia_km is defined and aviso.distancia_km is not none %}
+    <p class="aviso-meta">A {{ aviso.distancia_km }} km del campus · compatibilidad {{ aviso.compatibilidad }} %</p>
+    {% endif %}
+    {% if aviso.es_demo %}<span class="chip">Dato de demostración</span>{% endif %}
+  </div>
+</a>
+{% endmacro %}

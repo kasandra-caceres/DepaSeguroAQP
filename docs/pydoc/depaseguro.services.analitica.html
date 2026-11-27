@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.services.analitica</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.services.html" class="white">services</a>.analitica</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cservices%5Canalitica.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\services\analitica.py</a></td></tr></table>
+    <p><span class="code">Funciones&nbsp;puras&nbsp;de&nbsp;cálculo:&nbsp;normalización,&nbsp;estadística,&nbsp;hashes,&nbsp;validación&nbsp;y&nbsp;geografía.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="PIL.Image.html">PIL.Image</a><br>
+<a href="hashlib.html">hashlib</a><br>
+</td><td class="multicolumn"><a href="io.html">io</a><br>
+<a href="math.html">math</a><br>
+</td><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td class="multicolumn"><a href="re.html">re</a><br>
+<a href="unicodedata.html">unicodedata</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-analizar_clausulas"><strong>analizar_clausulas</strong></a>(texto: str) -&gt; list[dict]</dt><dd><span class="code">Detecta&nbsp;cláusulas&nbsp;potencialmente&nbsp;abusivas&nbsp;en&nbsp;un&nbsp;contrato&nbsp;pegado&nbsp;por&nbsp;el&nbsp;usuario.</span></dd></dl>
+ <dl><dt><a name="-analizar_imagen"><strong>analizar_imagen</strong></a>(contenido: bytes) -&gt; dict</dt><dd><span class="code">Valida&nbsp;que&nbsp;los&nbsp;bytes&nbsp;sean&nbsp;una&nbsp;imagen&nbsp;real&nbsp;y&nbsp;calcula&nbsp;sus&nbsp;huellas.</span></dd></dl>
+ <dl><dt><a name="-analizar_texto"><strong>analizar_texto</strong></a>(texto: str) -&gt; dict[str, list[str]]</dt><dd><span class="code">Busca&nbsp;expresiones&nbsp;típicas&nbsp;de&nbsp;estafa,&nbsp;sin&nbsp;distinguir&nbsp;mayúsculas&nbsp;ni&nbsp;tildes.</span></dd></dl>
+ <dl><dt><a name="-deflactar"><strong>deflactar</strong></a>(monto: float, ipc_origen: float, ipc_actual: float) -&gt; float</dt><dd><span class="code">Expresa&nbsp;un&nbsp;monto&nbsp;antiguo&nbsp;en&nbsp;soles&nbsp;de&nbsp;hoy&nbsp;usando&nbsp;el&nbsp;índice&nbsp;de&nbsp;precios.</span></dd></dl>
+ <dl><dt><a name="-dhash"><strong>dhash</strong></a>(imagen: Image.Image, tamano: int = 8) -&gt; str</dt><dd><span class="code">Hash&nbsp;perceptual&nbsp;por&nbsp;diferencias:&nbsp;compara&nbsp;brillo&nbsp;entre&nbsp;píxeles&nbsp;vecinos.<br>
+&nbsp;<br>
+Dos&nbsp;fotos&nbsp;iguales&nbsp;con&nbsp;distinto&nbsp;tamaño&nbsp;o&nbsp;compresión&nbsp;producen&nbsp;hashes&nbsp;casi<br>
+idénticos,&nbsp;algo&nbsp;que&nbsp;un&nbsp;SHA-256&nbsp;no&nbsp;detecta.</span></dd></dl>
+ <dl><dt><a name="-distancia_km"><strong>distancia_km</strong></a>(lat1: float, lon1: float, lat2: float, lon2: float) -&gt; float</dt><dd><span class="code">Distancia&nbsp;sobre&nbsp;la&nbsp;superficie&nbsp;terrestre&nbsp;con&nbsp;la&nbsp;fórmula&nbsp;de&nbsp;Haversine.</span></dd></dl>
+ <dl><dt><a name="-dni_valido"><strong>dni_valido</strong></a>(dni: str) -&gt; bool</dt></dl>
+ <dl><dt><a name="-hamming"><strong>hamming</strong></a>(hash_a: str, hash_b: str) -&gt; int</dt></dl>
+ <dl><dt><a name="-normalizar_precio"><strong>normalizar_precio</strong></a>(
+    precio: float,
+    moneda: str,
+    periodo: str,
+    area_m2: float,
+    tipo_cambio: float
+) -&gt; PrecioNormalizado</dt><dd><span class="code">Convierte&nbsp;cualquier&nbsp;precio&nbsp;publicado&nbsp;a&nbsp;soles&nbsp;por&nbsp;mes&nbsp;y&nbsp;soles&nbsp;por&nbsp;m².</span></dd></dl>
+ <dl><dt><a name="-normalizar_telefono"><strong>normalizar_telefono</strong></a>(telefono: str) -&gt; str</dt><dd><span class="code">Deja&nbsp;solo&nbsp;los&nbsp;9&nbsp;dígitos&nbsp;de&nbsp;un&nbsp;celular&nbsp;peruano&nbsp;para&nbsp;poder&nbsp;compararlo.</span></dd></dl>
+ <dl><dt><a name="-resumen_precios"><strong>resumen_precios</strong></a>(filas: list[dict]) -&gt; list[dict]</dt><dd><span class="code">Agrupa&nbsp;precios&nbsp;por&nbsp;distrito&nbsp;con&nbsp;pandas&nbsp;para&nbsp;reportes&nbsp;y&nbsp;panel&nbsp;de&nbsp;control.</span></dd></dl>
+ <dl><dt><a name="-ruc_valido"><strong>ruc_valido</strong></a>(ruc: str) -&gt; bool</dt><dd><span class="code">Valida&nbsp;longitud,&nbsp;prefijo&nbsp;y&nbsp;dígito&nbsp;verificador&nbsp;(módulo&nbsp;11)&nbsp;del&nbsp;RUC.</span></dd></dl>
+ <dl><dt><a name="-sha256_bytes"><strong>sha256_bytes</strong></a>(contenido: bytes) -&gt; str</dt></dl>
+ <dl><dt><a name="-sin_acentos"><strong>sin_acentos</strong></a>(texto: str) -&gt; str</dt></dl>
+ <dl><dt><a name="-telefono_valido"><strong>telefono_valido</strong></a>(telefono: str) -&gt; bool</dt></dl>
+ <dl><dt><a name="-tendencia_y_proyeccion"><strong>tendencia_y_proyeccion</strong></a>(valores: list[float], pasos: int = 3) -&gt; dict</dt><dd><span class="code">Ajusta&nbsp;una&nbsp;recta&nbsp;por&nbsp;mínimos&nbsp;cuadrados&nbsp;y&nbsp;proyecta&nbsp;los&nbsp;siguientes&nbsp;periodos.</span></dd></dl>
+ <dl><dt><a name="-z_robusto"><strong>z_robusto</strong></a>(valor: float, muestra: list[float]) -&gt; tuple[float | None, float | None]</dt><dd><span class="code">Puntaje&nbsp;z&nbsp;robusto&nbsp;(mediana&nbsp;y&nbsp;MAD).&nbsp;Resiste&nbsp;mejor&nbsp;los&nbsp;precios&nbsp;falsos&nbsp;que&nbsp;media&nbsp;y&nbsp;desviación.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>CLAUSULAS_ABUSIVAS</strong> = ((r'(no|sin) (se )?(devuelve|devolvera|reembols)\w*....rantia.{0,40}no (es|sera) (reembolsable|devuelta)', 'alta', 'La garantía no se devuelve', 'La garantía debe devolverse al terminar el contrato, descontando solo daños comprobados.'), (r'(ingres\w+|entrar|acceder).{0,50}(cualquier momento|sin aviso|sin previo aviso)', 'alta', 'Ingreso al cuarto sin aviso', 'El arrendador no debería entrar sin acuerdo previo con quien ocupa el cuarto.'), (r'(aument\w+|subir|increment\w+).{0,40}(cuando|en cualquier|libremente|sin aviso|a su criterio)', 'alta', 'Aumento de renta unilateral', 'El monto y la forma de reajuste deben estar pactados en el contrato.'), (r'(desaloj\w+|retirar\w*|cambiar\w* (la )?chapa|co...aviso|inmediat\w+|de inmediato|cualquier momento)', 'alta', 'Desalojo o corte de servicios inmediato', 'Cortar servicios o cambiar la chapa por cuenta p...a puede ser ilegal; exige un procedimiento claro.'), (r'renuncia\w*.{0,40}(reclam\w+|derecho\w*|demand\w+|denuncia\w*)', 'alta', 'Renuncia a reclamar', 'Una cláusula no debería impedirte acudir a las autoridades.'), (r'(penalidad|multa).{0,40}(\d+ (meses|mes)|total del contrato|todos los meses)', 'media', 'Penalidad desproporcionada', 'Revisa que la penalidad guarde proporción con el daño real.'), (r'visitas? (prohibid\w+|no permitid\w+)|prohibid\w+.{0,20}visitas?', 'media', 'Prohibición total de visitas', 'Conviene pactar reglas de convivencia razonables en lugar de una prohibición absoluta.'))<br>
+<strong>FACTOR_PERIODO</strong> = {'anio': 0.08333333333333333, 'mes': 1, 'semana': 4.333333333333333, 'semestre': 0.16666666666666666}<br>
+<strong>FRASES_RIESGO</strong> = {'evasion': ('sin visita', 'no hay visitas', 'estoy de viaje', 'fuera de la ciudad', 'fuera del pais', 'te envio las llaves', 'por courier', 'sin contrato', 'no necesitas contrato', 'el dueno no esta', 'solo por whatsapp'), 'pago': ('yape', 'plin', 'deposita', 'deposito', 'transferencia', 'adelanta', 'adelanto antes', 'separa con', 'separar con', 'reserva con', 'pago por adelantado', 'paga antes'), 'presion': ('solo hoy', 'ultimo cuarto', 'ultima habitacion', 'urgente', 'muchos interesados', 'se va rapido', 'reserva ya', 'reserva ahora', 'aprovecha ya', 'hoy mismo', 'no pierdas')}</td></tr></table>
+</body></html>

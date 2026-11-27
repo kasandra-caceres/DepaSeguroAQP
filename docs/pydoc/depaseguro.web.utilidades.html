@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module depaseguro.web.utilidades</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="depaseguro.html" class="white">depaseguro</a>.<a href="depaseguro.web.html" class="white">web</a>.utilidades</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Csenati%5Cappdata%5Clocal%5Cclaude-data%5Cclaude_pzs8sxrjxfjjc%5Cscratch-workspaces%5C7fd14493-73b1-4640-a7bd-bd1ae32f4f06%5C8e7bd05a-8964-4879-ae94-f6b332ef1464%5Cscratch-2026-11-06-88aa64%5Cdepaseguroaqp%5Cdepaseguro%5Cweb%5Cutilidades.py">c:\users\senati\appdata\local\claude-data\claude_pzs8sxrjxfjjc\scratch-workspaces\7fd14493-73b1-4640-a7bd-bd1ae32f4f06\8e7bd05a-8964-4879-ae94-f6b332ef1464\scratch-2026-11-06-88aa64\depaseguroaqp\depaseguro\web\utilidades.py</a></td></tr></table>
+    <p><span class="code">Sesión,&nbsp;permisos,&nbsp;protección&nbsp;CSRF&nbsp;y&nbsp;filtros&nbsp;compartidos&nbsp;por&nbsp;las&nbsp;vistas.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="hmac.html">hmac</a><br>
+</td><td class="multicolumn"><a href="secrets.html">secrets</a><br>
+</td><td class="multicolumn"><a href="time.html">time</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-clase_nivel"><strong>clase_nivel</strong></a>(nivel: str | None) -&gt; str</dt></dl>
+ <dl><dt><a name="-demasiados_intentos"><strong>demasiados_intentos</strong></a>(clave: str) -&gt; bool</dt><dd><span class="code">Limita&nbsp;intentos&nbsp;de&nbsp;acceso&nbsp;por&nbsp;dirección&nbsp;IP&nbsp;en&nbsp;una&nbsp;ventana&nbsp;de&nbsp;tiempo.</span></dd></dl>
+ <dl><dt><a name="-limpiar_intentos"><strong>limpiar_intentos</strong></a>(clave: str) -&gt; None</dt></dl>
+ <dl><dt><a name="-preparar_peticion"><strong>preparar_peticion</strong></a>() -&gt; None</dt><dd><span class="code">Carga&nbsp;al&nbsp;usuario&nbsp;actual&nbsp;y&nbsp;valida&nbsp;el&nbsp;token&nbsp;CSRF&nbsp;en&nbsp;cada&nbsp;envío&nbsp;de&nbsp;formulario.</span></dd></dl>
+ <dl><dt><a name="-registrar_filtros"><strong>registrar_filtros</strong></a>(app) -&gt; None</dt></dl>
+ <dl><dt><a name="-registrar_intento"><strong>registrar_intento</strong></a>(clave: str) -&gt; None</dt></dl>
+ <dl><dt><a name="-requiere_rol"><strong>requiere_rol</strong></a>(*roles: str)</dt><dd><span class="code">Decorador&nbsp;de&nbsp;acceso.&nbsp;Es&nbsp;una&nbsp;función&nbsp;de&nbsp;orden&nbsp;superior&nbsp;que&nbsp;envuelve&nbsp;la&nbsp;vista.</span></dd></dl>
+ <dl><dt><a name="-token_csrf"><strong>token_csrf</strong></a>() -&gt; str</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>MAX_INTENTOS</strong> = 6<br>
+<strong>MOTIVOS</strong> = {'cobro_indebido': 'Cobro indebido', 'condiciones_abusivas': 'Condiciones abusivas', 'fotos_falsas': 'Fotos falsas o copiadas', 'inexistente': 'El inmueble no existe', 'otro': 'Otro motivo', 'suplantacion': 'Suplantación del dueño'}<br>
+<strong>TIPOS</strong> = {'cuarto': 'Cuarto', 'departamento': 'Departamento', 'minidepartamento': 'Minidepartamento', 'pension': 'Pensión con alimentos'}<br>
+<strong>VENTANA_SEGUNDOS</strong> = 300<br>
+<strong>__annotations__</strong> = {'_intentos': 'dict[str, list[float]]'}<br>
+<strong>__conditional_annotations__</strong> = set()<br>
+<strong>g</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>session</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

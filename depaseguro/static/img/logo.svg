@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DepaSeguro AQP">
+  <path d="M32 3 56 12v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="#22303c"/>
+  <path d="M32 15 15 30h5v15h9V34h6v11h9V30h5z" fill="#f6f1e7"/>
+  <path d="m24 27 6 6 11-12" fill="none" stroke="#e0763f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

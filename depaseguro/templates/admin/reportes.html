@@ -1,0 +1,27 @@
+{% extends "admin/base_admin.html" %}
+{% block titulo %}Reportes{% endblock %}
+{% block admin %}
+<h1>Reportes de estudiantes</h1>
+{% for r in reportes %}
+<div class="caja">
+  <div class="acciones" style="justify-content:space-between">
+    <b>#{{ r.id }} · {{ MOTIVOS[r.motivo] }}</b>
+    <span class="chip">{{ r.estado.replace('_', ' ') }}</span>
+  </div>
+  <p class="nota">{{ r.titulo or 'Aviso eliminado' }} · Reportado por {{ r.reportante }} el {{ r.creado_en|fecha }} · Monto: {{ r.monto_perdido|soles2 }}</p>
+  <p>{{ r.detalle }}</p>
+  {% for d in r.descargos %}<div class="senal senal-info"><b>Descargo del arrendador</b><p>{{ d.texto }}</p></div>{% endfor %}
+  {% if r.resolucion %}<p><b>Resolución:</b> {{ r.resolucion }}</p>{% endif %}
+  <form method="post" action="{{ url_for('admin.resolver', reporte_id=r.id) }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Resolución <input name="resolucion" value="{{ r.resolucion or '' }}"></label>
+    <div class="acciones">
+      <button class="boton boton-sec boton-chico" name="estado" value="en_revision" type="submit">En revisión</button>
+      <button class="boton boton-peligro boton-chico" name="estado" value="confirmado" type="submit">Confirmar</button>
+      <button class="boton boton-sec boton-chico" name="estado" value="descartado" type="submit">Descartar</button>
+      <a class="boton boton-sec boton-chico" href="{{ url_for('estudiante.expediente', reporte_id=r.id) }}">Expediente PDF</a>
+    </div>
+  </form>
+</div>
+{% else %}<p>No hay reportes.</p>{% endfor %}
+{% endblock %}
