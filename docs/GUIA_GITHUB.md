@@ -1,26 +1,21 @@
-# Guía para publicar DepaSeguro AQP en GitHub
+# Guía de trabajo con GitHub
 
-El informe dice que el código está en GitHub y que las incidencias están registradas como Issues. Esta guía deja eso verdadero antes de la entrega del 01-12-2026.
+Cómo se trabaja con el repositorio del proyecto en GitHub.
 
-## 1. Crear el repositorio
+## 1. Repositorio
 
-1. La responsable de versiones crea un repositorio vacío llamado `DepaSeguroAQP` en su cuenta.
-2. Copia la URL exacta y compárala con la de la carátula del informe. Si cambia, edita `REPOSITORIO` en `scripts/generar_informe.py` y vuelve a generar el informe.
-3. Agrega a la otra integrante como colaboradora en Settings, Collaborators.
+El repositorio es https://github.com/kasandra-caceres/DepaSeguroAQP y lo administra Kasandra Cáceres Quispe como responsable de esta entrega. La otra integrante se agrega como colaboradora en Settings, Collaborators, y trabaja desde su propia cuenta.
 
-## 2. Subir la versión base
+Ramas: `main` guarda versiones estables etiquetadas, como `v1.0.0`; `develop` integra; cada cambio va en `feature/*` o `fix/*` y entra a `develop` por Pull Request con fusión `--no-ff`.
 
-Cada integrante configura su identidad una sola vez:
+## 2. Configurar Git en tu equipo
+
+Cada integrante configura su identidad una sola vez, con el correo de su cuenta de GitHub:
 
 ```
 git config --global user.name "Nombre Apellido"
 git config --global user.email "correo-de-su-cuenta@github"
-```
-
-La responsable de versiones ejecuta:
-
-```
-bash scripts/crear_repositorio.sh https://github.com/USUARIO/DepaSeguroAQP.git
+git clone https://github.com/kasandra-caceres/DepaSeguroAQP.git
 ```
 
 ## 3. Trabajar con ramas y Pull Requests
@@ -37,11 +32,11 @@ git commit -m "feat(modulo): descripción corta"
 git push -u origin feature/nombre-del-cambio
 ```
 
-Luego se abre un Pull Request hacia `develop`, la otra integrante lo revisa y lo aprueba. Al final se fusiona `develop` en `main` y se crea la etiqueta `v1.0`.
+Luego se abre un Pull Request hacia `develop`, la otra integrante lo revisa y lo aprueba. Al final se fusiona `develop` en `main` y se crea una etiqueta de versión, por ejemplo `v1.1.0`.
 
 ## 4. Registrar los Issues
 
-Crea un Issue por cada fila de `docs/ISSUES.md`, ISSUE-01 a ISSUE-06, con la causa, la solución y la prevención. Ciérralos mencionando el commit o el Pull Request que los corrige.
+Cada incidencia nueva se registra como Issue con su causa, solución y prevención, y se agrega a `docs/ISSUES.md`. El Pull Request que la corrige la cierra con `Closes #n` en su descripción. ISSUE-01 a ISSUE-08 ya están registrados y cerrados.
 
 ## 5. Reemplazar las capturas del informe
 
