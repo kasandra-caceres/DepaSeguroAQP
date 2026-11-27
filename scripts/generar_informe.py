@@ -539,7 +539,8 @@ def capitulo3(pl: Plantilla) -> None:
              ["05", "Rutas de Windows demasiado largas", "Nombres más cortos", "Instalar en una ruta corta"],
              ["06", "Macros Jinja sin variables globales", "Registrar variables globales", "Prueba de páginas"],
              ["07", "OpenStreetMap figuraba con 0 registros, como si fallara", "Mostrar Bajo demanda y direcciones verificadas", "Prueba automática"],
-             ["08", "El navegador rechazaba 800 en el precio máximo por min=1 y step=10", "Usar min=0 y step=1", "Prueba automática"]], [1, 6, 5, 4.5], "Incidencias y cambios realizados.")
+             ["08", "El navegador rechazaba 800 en el precio máximo por min=1 y step=10", "Usar min=0 y step=1", "Prueba automática"],
+             ["09", "El MININTER dejó de publicar el histórico y la lectura de denuncias falló", "Leer y unir los CSV anuales", "Prueba automática"]], [1, 6, 5, 4.5], "Incidencias y cambios realizados.")
     c.imagen(EVI / "pruebas.png", "Resultado de pruebas automáticas.", 15.5)
 
 

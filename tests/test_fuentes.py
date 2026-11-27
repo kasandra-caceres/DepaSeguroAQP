@@ -98,6 +98,23 @@ def test_denuncias_descubre_archivo_y_filtra_arequipa(db):
     assert len(fila) == 1 and fila[0]["ubigeo"] == "040103" and fila[0]["cantidad"] == 10
 
 
+def test_denuncias_une_archivos_anuales(db):
+    """ISSUE-09: desde noviembre de 2026 el MININTER publica un CSV por año en vez del histórico."""
+    catalogo = {"result": [{"resources": [
+        {"name": "DataSet - Denuncias Policiales - 2025", "format": "csv", "url": "https://x/a2025.csv"},
+        {"name": "DataSet - Denuncias Policiales - 2026", "format": "csv", "url": "https://x/a2026.csv"},
+        {"name": "Diccionario de datos - Denuncias Policiales", "format": "xlsx", "url": "https://x/dic.xlsx"},
+    ]}]}
+    cabecera = '"ANIO","MES","DPTO_HECHO_NEW","PROV_HECHO","DIST_HECHO","UBIGEO_HECHO","P_MODALIDADES","cantidad"\n'
+    a2025 = cabecera + '"2025","1","AREQUIPA","AREQUIPA","CAYMA","40103","Estafa",5\n"2025","1","LIMA","LIMA","LIMA","150101","Estafa",9\n'
+    a2026 = cabecera.replace("cantidad", "CANTIDAD") + '"2026","2","AREQUIPA","AREQUIPA","YANAHUARA","40126","Estafa",2\n'
+    sesion = SesionFalsa({"package_show": Respuesta(json.dumps(catalogo)), "a2025.csv": Respuesta(a2025), "a2026.csv": Respuesta(a2026)})
+    resultado = FuenteDenuncias(db, sesion).ejecutar()
+    assert resultado["estado"] == "ok" and resultado["registros"] == 2
+    anios = {f["anio"]: f["cantidad"] for f in db.execute("SELECT anio, cantidad FROM denuncias_distrito")}
+    assert anios == {2025: 5, 2026: 2}
+
+
 def test_denuncias_falla_si_cambia_el_catalogo(db):
     catalogo = {"result": [{"resources": [{"name": "Otro", "format": "csv", "url": "https://x/o.csv"}]}]}
     resultado = FuenteDenuncias(db, SesionFalsa({"package_show": Respuesta(json.dumps(catalogo))})).ejecutar()
