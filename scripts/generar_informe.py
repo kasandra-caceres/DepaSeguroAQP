@@ -68,17 +68,21 @@ CAMPUS = bd.execute("SELECT COUNT(*) FROM campus").fetchone()[0]
 TABLAS = [f[0] for f in bd.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
 fuentes = [dict(f) for f in bd.execute("SELECT * FROM fuentes_datos ORDER BY categoria DESC, nombre")]
 n = lambda v: f"{v:,}".replace(",", " ")
+MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+ULTIMO_MES_2026 = bd.execute("SELECT MAX(mes) FROM denuncias_distrito WHERE anio = 2026").fetchone()[0] or 10
+# El archivo 2026 del Ministerio Público se publica como "2026 (ene. - oct.)": no trae columna de mes.
+PERIODO_MPFN_2026 = "enero a octubre"
 
-# Valores de la última lectura completa de fuentes, del 21-11-2026. Se usan solo si la base local
+# Valores de la última lectura completa de fuentes, del 27-11-2026. Se usan solo si la base local
 # todavía no ejecutó la ingesta, por ejemplo en un equipo sin internet.
-LECTURA_21_11 = {"anual": {2018: 700, 2024: 2332, 2025: 2159, 2026: 1401}, "fraude_2019": 138, "fraude_2026": 1651,
-                 "registros": {"bcrp": 78, "sunedu_campus": 16, "mininter_denuncias": 12447, "mpfn_ciberdelitos": 82,
+LECTURA_27_11 = {"anual": {2018: 748, 2024: 2403, 2025: 2142, 2026: 1687}, "fraude_2019": 138, "fraude_2026": 1979,
+                 "registros": {"bcrp": 78, "sunedu_campus": 16, "mininter_denuncias": 12538, "mpfn_ciberdelitos": 82,
                                "wikidata_poblacion": 17, "ti_cpi": 13}}
 if not ANUAL:
-    ANUAL = LECTURA_21_11["anual"]
-    CIBER = [{"fraude": LECTURA_21_11["fraude_2019"]}, {"fraude": LECTURA_21_11["fraude_2026"]}]
+    ANUAL = LECTURA_27_11["anual"]
+    CIBER = [{"fraude": LECTURA_27_11["fraude_2019"]}, {"fraude": LECTURA_27_11["fraude_2026"]}]
     for f in fuentes:
-        f["registros"] = LECTURA_21_11["registros"].get(f["clave"], f["registros"])
+        f["registros"] = LECTURA_27_11["registros"].get(f["clave"], f["registros"])
 for f in fuentes:
     if f["clave"] == "osm_nominatim":
         f["registros"] = "Bajo demanda"
@@ -257,9 +261,9 @@ def capitulo1(pl: Plantilla, vineta) -> None:
              ["Estafas denunciadas en la provincia de Arequipa, 2018", n(ANUAL[2018]), "MININTER"],
              ["Estafas denunciadas en la provincia de Arequipa, 2024", n(ANUAL[2024]), "MININTER"],
              ["Estafas denunciadas en la provincia de Arequipa, 2025", n(ANUAL[2025]), "MININTER"],
-             ["Estafas denunciadas de enero a septiembre de 2026", n(ANUAL[2026]), "MININTER"],
+             [f"Estafas denunciadas de enero a {MESES_ES[ULTIMO_MES_2026 - 1]} de 2026", n(ANUAL[2026]), "MININTER"],
              ["Fraude informático en el distrito fiscal de Arequipa, 2019", n(CIBER[0]["fraude"]), "Ministerio Público"],
-             ["Fraude informático de enero a septiembre de 2026", n(CIBER[-1]["fraude"]), "Ministerio Público"]],
+             [f"Fraude informático de {PERIODO_MPFN_2026} de 2026", n(CIBER[-1]["fraude"]), "Ministerio Público"]],
             [10, 2.5, 4], "Indicadores de contexto obtenidos automáticamente.")
     if ENCUESTA:
         c.p(f"Estos datos incluyen todo tipo de estafas y no miden solo alquileres. No se encontró una estadística oficial específica sobre estafas de vivienda estudiantil en Arequipa; por ello se aplicó una encuesta a {ENCUESTA['total']} estudiantes: el {ENCUESTA['estafa']} % sufrió o conoce un caso de estafa y al {ENCUESTA['pago_previo']} % le pidieron dinero antes de visitar. El detalle está en el anexo C.")

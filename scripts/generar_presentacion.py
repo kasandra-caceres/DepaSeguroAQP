@@ -24,8 +24,8 @@ TITULOS, TEXTO = "Georgia", "Segoe UI"
 
 bd = sqlite3.connect(RAIZ / "data" / "depaseguro.db")
 ANUAL = bd.execute("SELECT anio, SUM(cantidad) FROM denuncias_distrito WHERE modalidad='Estafa' GROUP BY anio").fetchall()
-if not ANUAL:  # Base sin ingesta: valores de la lectura completa del 21-11-2026.
-    ANUAL = [(2018, 700), (2019, 641), (2020, 843), (2021, 1073), (2022, 1455), (2023, 2039), (2024, 2332), (2025, 2159)]
+if not ANUAL:  # Base sin ingesta: valores de la lectura completa del 27-11-2026.
+    ANUAL = [(2018, 748), (2019, 648), (2020, 855), (2021, 1054), (2022, 1428), (2023, 2002), (2024, 2403), (2025, 2142)]
 
 def resumen_pruebas() -> tuple[int, int]:
     """Lee la última ejecución de pytest guardada en docs/evidencias/pruebas.txt: total de pruebas y cobertura."""

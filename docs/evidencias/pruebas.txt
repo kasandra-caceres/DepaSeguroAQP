@@ -1,10 +1,50 @@
-============================= test session starts ==============================
-collected 127 items
+============================= test session starts =============================
+collected 128 items
 
-tests/test_analitica.py ......................                           [ 17%]
-tests/test_evaluacion.py ................................                [ 42%]
-tests/test_fuentes.py ...............                                    [ 54%]
-tests/test_logica_y_funcional.py ...........                             [ 62%]
-tests/test_web.py ...............................................        [100%]
+tests\test_analitica.py ......................                           [ 17%]
+tests\test_evaluacion.py ................................                [ 42%]
+tests\test_fuentes.py ................                                   [ 54%]
+tests\test_logica_y_funcional.py ...........                             [ 63%]
+tests\test_web.py ...............................................        [100%]
 
-============================= 127 passed in 11.17s =============================
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.12.5-final-0 _______________
+
+Name                                   Stmts   Miss  Cover
+----------------------------------------------------------
+depaseguro\__init__.py                    50      3    94%
+depaseguro\config.py                      42     10    76%
+depaseguro\dao\__init__.py                 0      0   100%
+depaseguro\dao\base.py                    58      3    95%
+depaseguro\dao\repositorios.py           162      3    98%
+depaseguro\functional\__init__.py          0      0   100%
+depaseguro\functional\pipeline.py         21      0   100%
+depaseguro\ingestion\__init__.py           0      0   100%
+depaseguro\ingestion\fuentes.py          294     19    94%
+depaseguro\ingestion\planificador.py      41     18    56%
+depaseguro\logic\__init__.py               0      0   100%
+depaseguro\logic\motor.py                191      9    95%
+depaseguro\models\__init__.py              0      0   100%
+depaseguro\models\entidades.py           105      2    98%
+depaseguro\services\__init__.py            0      0   100%
+depaseguro\services\alertas.py            53      2    96%
+depaseguro\services\analisis_red.py      105     18    83%
+depaseguro\services\analitica.py         102      4    96%
+depaseguro\services\busqueda.py           48      1    98%
+depaseguro\services\detectores.py         83      7    92%
+depaseguro\services\evaluador.py         141      4    97%
+depaseguro\services\eventos.py            13      0   100%
+depaseguro\services\gestion.py           215     32    85%
+depaseguro\services\reportes.py          136     30    78%
+depaseguro\services\verificador.py        89     20    78%
+depaseguro\web\__init__.py                 0      0   100%
+depaseguro\web\admin.py                  124     25    80%
+depaseguro\web\api.py                     20      0   100%
+depaseguro\web\arrendador.py              72      5    93%
+depaseguro\web\auth.py                    50      1    98%
+depaseguro\web\estudiante.py              58     12    79%
+depaseguro\web\publico.py                124     15    88%
+depaseguro\web\utilidades.py              64      1    98%
+----------------------------------------------------------
+TOTAL                                   2461    244    90%
+============================ 128 passed in 46.55s =============================
