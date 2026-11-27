@@ -4,7 +4,7 @@ Cómo se trabaja con el repositorio del proyecto en GitHub.
 
 ## 1. Repositorio
 
-El repositorio es https://github.com/kasandra-caceres/DepaSeguroAQP y lo administra Kasandra Cáceres Quispe como responsable de esta entrega. La otra integrante se agrega como colaboradora en Settings, Collaborators, y trabaja desde su propia cuenta.
+El repositorio es https://github.com/kasandra-caceres/DepaSeguroAQP y lo administra Kasandra Cáceres Quispe, líder y responsable del repositorio. Alisson Dolorier Arias, responsable de integración, pruebas y demostración, se agrega como colaboradora en Settings, Collaborators, y trabaja desde su propia cuenta.
 
 Ramas: `main` guarda versiones estables etiquetadas, como `v1.0.0`; `develop` integra; cada cambio va en `feature/*` o `fix/*` y entra a `develop` por Pull Request con fusión `--no-ff`.
 

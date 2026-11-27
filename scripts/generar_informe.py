@@ -323,10 +323,10 @@ def capitulo1(pl: Plantilla, vineta) -> None:
     c = pl.en(161, 165)
     c.p("El proyecto es necesario porque el estudiante suele decidir con poca información y bajo presión. Una herramienta que explique las señales de riesgo puede evitar una transferencia equivocada. También ayuda a arrendadores honestos a demostrar confianza. Sin esta solución, cada estudiante seguiría verificando por su cuenta y los casos quedarían dispersos en chats y redes sociales.")
     c = pl.en(165, 169)
-    c.p("El equipo está formado por dos integrantes, el máximo que permiten los lineamientos. Siguiendo la recomendación del docente, se designó una líder que coordina los entregables y una responsable del control de versiones en GitHub.")
+    c.p("El equipo está formado por dos integrantes, el máximo que permiten los lineamientos. Siguiendo la recomendación del docente, se designó una líder que coordina los entregables y se encarga del repositorio en GitHub, y una responsable de integración, pruebas y demostración.")
     c.tabla([["Integrante", "Rol", "Responsabilidades"],
-             ["Cáceres Quispe, Kasandra Coraly", "Líder del proyecto", "Coordina entregables, análisis, documentación y sustentación."],
-             ["Dolorier Arias, Alisson Valeria", "Responsable de versiones", "Gestiona GitHub, integración, pruebas y demostración."]], [5.5, 4, 7])
+             ["Cáceres Quispe, Kasandra Coraly", "Líder del proyecto y responsable del repositorio", "Coordina entregables, análisis, documentación y sustentación. Administra el repositorio en GitHub: ramas, Pull Requests, Issues y versiones."],
+             ["Dolorier Arias, Alisson Valeria", "Responsable de integración, pruebas y demostración", "Integra los módulos, ejecuta las pruebas automatizadas y prepara la demostración. Colabora en el repositorio desde su cuenta."]], [5.5, 4, 7])
     c.imagen(DIAG / "organigrama.png", "Organigrama del equipo.", 11)
     c = pl.en(169, 172)
     c.p("El presupuesto cubre las semanas 12 a 17 del curso. El prototipo usa equipos propios y software libre, por lo que el único gasto es el consumo de internet y electricidad. El servidor figura como costo mensual de un piloto futuro y no se suma al total.")
@@ -492,7 +492,7 @@ def capitulo3(pl: Plantilla) -> None:
     c = pl.en(328, 336)
     c.p("La vista llama a controladores Flask. Estos usan servicios Python y los servicios acceden a datos mediante DAO. El planificador alimenta la misma base y dispara nuevos cálculos.")
     c.imagen(DIAG / "arquitectura.png", "Arquitectura del sistema DepaSeguro AQP.")
-    pl.en(338, 342).p(f"El código se versiona con Git y se publica en GitHub en {REPOSITORIO.removesuffix('.git')}. El repositorio está en la cuenta de Kasandra Cáceres Quispe, quien lo administró en esta entrega; la otra integrante participa como colaboradora y sube sus cambios desde su propia cuenta.")
+    pl.en(338, 342).p(f"El código se versiona con Git y se publica en GitHub en {REPOSITORIO.removesuffix('.git')}. El repositorio está en la cuenta de Kasandra Cáceres Quispe, líder y responsable del repositorio; Alisson Dolorier Arias participa como colaboradora y sube sus cambios desde su propia cuenta.")
     c = pl.en(342, 355)
     c.p("Se aplicó una estrategia con rama main para versiones estables, develop para integración y feature/* para cada componente. Las correcciones futuras pueden usar fix/*.")
     c.imagen(DIAG / "ramas_flujo.png", "Flujograma de ramificación.")
@@ -535,7 +535,7 @@ def cierre(pl: Plantilla) -> None:
              ["2", "Hacer un piloto de un ciclo con avisos reales de un solo campus.", "Equipo y una universidad aliada", "Comprobar si el Trust Score anticipa los casos reportados"],
              ["3", "Pedir a universidades y municipalidades datos de alquileres para la mediana de precios.", "Equipo", "Reemplazar la mediana de avisos propios por una referencia oficial"],
              ["4", "Revisar el cumplimiento de la Ley 29733 y registrar el banco de datos antes de usar datos reales.", "Asesoría legal de la universidad", "Proteger documentos y teléfonos de los usuarios"],
-             ["5", "Publicar en un servidor con HTTPS, copias de seguridad diarias y migrar de SQLite a PostgreSQL al crecer.", "Responsable de versiones", "Atender a varios campus sin perder datos"],
+             ["5", "Publicar en un servidor con HTTPS, copias de seguridad diarias y migrar de SQLite a PostgreSQL al crecer.", "Responsable del repositorio", "Atender a varios campus sin perder datos"],
              ["6", "Agregar avisos por correo o WhatsApp y una búsqueda inversa de imágenes con un servicio autorizado.", "Equipo", "Alertar a tiempo y detectar fotos copiadas de internet"],
              ["7", "Evaluar la consulta registral de SUNARP con autorización del usuario.", "Equipo con SUNARP", "Confirmar la titularidad sin revisar documentos a mano"],
              ["8", "Mantener la revisión por Pull Request y las pruebas antes de cada fusión.", "Ambas integrantes", "Conservar la calidad al agregar funciones"]],
