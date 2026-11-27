@@ -9,3 +9,4 @@ entregables/*.zip
 # Base local, archivos subidos y respuestas: se generan con la ingesta y poblar_demo.py
 data/*
 !data/encuesta_plantilla.csv
+!data/encuesta_resultados.csv

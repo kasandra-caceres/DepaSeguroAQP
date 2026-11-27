@@ -156,21 +156,48 @@ class FuenteDenuncias(FuenteDatos):
     uso = "Calcula estafas y delitos patrimoniales por distrito y genera alertas de zona."
     dataset = "denuncias-policiales-registradas-nivel-nacional-mininter"
 
+    COLUMNAS = ("UBIGEO_HECHO", "DIST_HECHO", "ANIO", "MES", "P_MODALIDADES", "cantidad")
+    # Nombres que usan los archivos anuales publicados desde noviembre de 2026.
+    ALIAS = {"ANIO_REGISTRO": "ANIO", "MES_REGISTRO": "MES"}
+
     def obtener(self) -> dict:
+        """El portal publicó primero un histórico "Enero 2018 a ..." y desde noviembre de 2026 un CSV por año.
+
+        Se usa el histórico si existe; si no, todos los archivos anuales.
+        """
         recursos = [r for r in self.recursos_portal(self.dataset) if str(r.get("format", "")).lower() == "csv"]
         historicos = [r for r in recursos if re.search(r"Enero\s+2018\s+a", r.get("name", ""))]
-        if not historicos:
-            raise ValueError("No se encontró el archivo histórico en el catálogo.")
-        recurso = historicos[-1]
-        return {"url": recurso["url"], "nombre": recurso["name"]}
+        if historicos:
+            return {"archivos": [{"url": historicos[-1]["url"], "nombre": historicos[-1]["name"]}]}
+        anuales = sorted((r for r in recursos if re.search(r"Denuncias Policiales\s*-\s*(20\d\d)\s*$", r.get("name", ""))),
+                         key=lambda r: r["name"])
+        if not anuales:
+            raise ValueError("No se encontró el archivo histórico ni los archivos anuales en el catálogo.")
+        return {"archivos": [{"url": r["url"], "nombre": r["name"]} for r in anuales]}
 
     def huella(self, crudo: dict) -> str:
-        return hashlib.sha256(crudo["url"].encode()).hexdigest()
+        return hashlib.sha256("|".join(a["url"] for a in crudo["archivos"]).encode()).hexdigest()
+
+    def leer(self, contenido: bytes) -> pd.DataFrame:
+        texto = decodificar(contenido)
+        separador = ";" if texto.split("\n", 1)[0].count(";") > texto.split("\n", 1)[0].count(",") else ","
+        tabla = pd.read_csv(io.StringIO(texto), dtype=str, sep=separador)
+        nombres = {c: c.strip().strip('"') for c in tabla.columns}
+        tabla = tabla.rename(columns=nombres)
+        por_mayuscula = {c.upper(): c for c in tabla.columns}
+        for alias, nombre in self.ALIAS.items():
+            if nombre not in por_mayuscula and alias in por_mayuscula:
+                por_mayuscula[nombre] = por_mayuscula[alias]
+        faltan = [c for c in self.COLUMNAS if c.upper() not in por_mayuscula]
+        if faltan:
+            raise ValueError(f"El archivo no trae las columnas {', '.join(faltan)}. Trae: {', '.join(tabla.columns[:15])}")
+        tabla = tabla.rename(columns={por_mayuscula[c.upper()]: c for c in self.COLUMNAS})
+        tabla["UBIGEO_HECHO"] = tabla["UBIGEO_HECHO"].str.strip().str.zfill(6)
+        return tabla[tabla["UBIGEO_HECHO"].str.startswith(PROVINCIA_DISTRITOS_UBIGEO)][list(self.COLUMNAS)]
 
     def cargar(self, crudo: dict) -> int:
-        contenido = self.descargar(crudo["url"]).content
-        tabla = pd.read_csv(io.StringIO(decodificar(contenido)), dtype=str)
-        return self.guardar(tabla)
+        partes = [self.leer(self.descargar(archivo["url"]).content) for archivo in crudo["archivos"]]
+        return self.guardar(pd.concat(partes, ignore_index=True))
 
     def guardar(self, tabla: pd.DataFrame) -> int:
         tabla["UBIGEO_HECHO"] = tabla["UBIGEO_HECHO"].str.zfill(6)

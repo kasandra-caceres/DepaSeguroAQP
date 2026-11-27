@@ -32,6 +32,27 @@ def resumen_pruebas() -> tuple[int, int]:
 
 N_PRUEBAS, COBERTURA = resumen_pruebas()
 
+
+def resumen_encuesta() -> dict | None:
+    """Resume data/encuesta_resultados.csv; None si la encuesta aún no tiene respuestas."""
+    ruta = RAIZ / "data" / "encuesta_resultados.csv"
+    if not ruta.exists():
+        return None
+    import pandas as pd
+    r = pd.read_csv(ruta)
+    pct = lambda col: round((r[col].astype(str).str.strip().str.lower() == "sí").mean() * 100)
+    montos = pd.to_numeric(r["p6_monto"], errors="coerce")
+    con_monto = montos[montos > 0].sort_values()
+    interes = pd.to_numeric(r["p8_interes"], errors="coerce")
+    fechas = pd.to_datetime(r["fecha"], errors="coerce").dropna()
+    return {"total": len(r), "otra_region": pct("p1_otra_region"), "busco": pct("p2_busco"), "pago_previo": pct("p4_pago_previo"),
+            "estafa": pct("p5_estafa"), "contrato": pct("p7_contrato"), "canales": r["p3_canal"].value_counts(),
+            "montos": con_monto, "sin_monto": int(montos.isna().sum()), "interes": interes.mean(),
+            "interes_alto": round((interes >= 4).mean() * 100), "desde": fechas.min(), "hasta": fechas.max()}
+
+
+ENCUESTA = resumen_encuesta()
+
 REPOSITORIO = "https://github.com/kasandra-caceres/DepaSeguroAQP.git"
 TITULO = ("DepaSeguro AQP: Plataforma de Verificación de Autenticidad, Calificación de Inmuebles y Detección de "
           "Arriendos Fraudulentos para Estudiantes Universitarios")
@@ -47,17 +68,21 @@ CAMPUS = bd.execute("SELECT COUNT(*) FROM campus").fetchone()[0]
 TABLAS = [f[0] for f in bd.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
 fuentes = [dict(f) for f in bd.execute("SELECT * FROM fuentes_datos ORDER BY categoria DESC, nombre")]
 n = lambda v: f"{v:,}".replace(",", " ")
+MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+ULTIMO_MES_2026 = bd.execute("SELECT MAX(mes) FROM denuncias_distrito WHERE anio = 2026").fetchone()[0] or 10
+# El archivo 2026 del Ministerio Público se publica como "2026 (ene. - oct.)": no trae columna de mes.
+PERIODO_MPFN_2026 = "enero a octubre"
 
-# Valores de la última lectura completa de fuentes, del 21-11-2026. Se usan solo si la base local
+# Valores de la última lectura completa de fuentes, del 27-11-2026. Se usan solo si la base local
 # todavía no ejecutó la ingesta, por ejemplo en un equipo sin internet.
-LECTURA_21_11 = {"anual": {2018: 700, 2024: 2332, 2025: 2159, 2026: 1401}, "fraude_2019": 138, "fraude_2026": 1651,
-                 "registros": {"bcrp": 78, "sunedu_campus": 16, "mininter_denuncias": 12447, "mpfn_ciberdelitos": 82,
+LECTURA_27_11 = {"anual": {2018: 748, 2024: 2403, 2025: 2142, 2026: 1687}, "fraude_2019": 138, "fraude_2026": 1979,
+                 "registros": {"bcrp": 78, "sunedu_campus": 16, "mininter_denuncias": 12538, "mpfn_ciberdelitos": 82,
                                "wikidata_poblacion": 17, "ti_cpi": 13}}
 if not ANUAL:
-    ANUAL = LECTURA_21_11["anual"]
-    CIBER = [{"fraude": LECTURA_21_11["fraude_2019"]}, {"fraude": LECTURA_21_11["fraude_2026"]}]
+    ANUAL = LECTURA_27_11["anual"]
+    CIBER = [{"fraude": LECTURA_27_11["fraude_2019"]}, {"fraude": LECTURA_27_11["fraude_2026"]}]
     for f in fuentes:
-        f["registros"] = LECTURA_21_11["registros"].get(f["clave"], f["registros"])
+        f["registros"] = LECTURA_27_11["registros"].get(f["clave"], f["registros"])
 for f in fuentes:
     if f["clave"] == "osm_nominatim":
         f["registros"] = "Bajo demanda"
@@ -236,11 +261,14 @@ def capitulo1(pl: Plantilla, vineta) -> None:
              ["Estafas denunciadas en la provincia de Arequipa, 2018", n(ANUAL[2018]), "MININTER"],
              ["Estafas denunciadas en la provincia de Arequipa, 2024", n(ANUAL[2024]), "MININTER"],
              ["Estafas denunciadas en la provincia de Arequipa, 2025", n(ANUAL[2025]), "MININTER"],
-             ["Estafas denunciadas de enero a septiembre de 2026", n(ANUAL[2026]), "MININTER"],
+             [f"Estafas denunciadas de enero a {MESES_ES[ULTIMO_MES_2026 - 1]} de 2026", n(ANUAL[2026]), "MININTER"],
              ["Fraude informático en el distrito fiscal de Arequipa, 2019", n(CIBER[0]["fraude"]), "Ministerio Público"],
-             ["Fraude informático de enero a septiembre de 2026", n(CIBER[-1]["fraude"]), "Ministerio Público"]],
+             [f"Fraude informático de {PERIODO_MPFN_2026} de 2026", n(CIBER[-1]["fraude"]), "Ministerio Público"]],
             [10, 2.5, 4], "Indicadores de contexto obtenidos automáticamente.")
-    c.p("Estos datos incluyen todo tipo de estafas y no miden solo alquileres. No se encontró una estadística oficial específica sobre estafas de vivienda estudiantil en Arequipa; por ello, la magnitud del problema local debe confirmarse con la encuesta del anexo.")
+    if ENCUESTA:
+        c.p(f"Estos datos incluyen todo tipo de estafas y no miden solo alquileres. No se encontró una estadística oficial específica sobre estafas de vivienda estudiantil en Arequipa; por ello se aplicó una encuesta a {ENCUESTA['total']} estudiantes: el {ENCUESTA['estafa']} % sufrió o conoce un caso de estafa y al {ENCUESTA['pago_previo']} % le pidieron dinero antes de visitar. El detalle está en el anexo C.")
+    else:
+        c.p("Estos datos incluyen todo tipo de estafas y no miden solo alquileres. No se encontró una estadística oficial específica sobre estafas de vivienda estudiantil en Arequipa; por ello, la magnitud del problema local debe confirmarse con la encuesta del anexo.")
     for indice, texto in ((105, "Ser una referencia confiable para encontrar vivienda universitaria segura en Arequipa."),
                           (106, "Ayudar a estudiantes a decidir antes de pagar, con evaluaciones claras y datos verificables."),
                           (107, "Mercado de alquiler informal, avisos en redes sociales, transferencias digitales y datos públicos disponibles en portales del Estado."),
@@ -515,7 +543,8 @@ def capitulo3(pl: Plantilla) -> None:
              ["05", "Rutas de Windows demasiado largas", "Nombres más cortos", "Instalar en una ruta corta"],
              ["06", "Macros Jinja sin variables globales", "Registrar variables globales", "Prueba de páginas"],
              ["07", "OpenStreetMap figuraba con 0 registros, como si fallara", "Mostrar Bajo demanda y direcciones verificadas", "Prueba automática"],
-             ["08", "El navegador rechazaba 800 en el precio máximo por min=1 y step=10", "Usar min=0 y step=1", "Prueba automática"]], [1, 6, 5, 4.5], "Incidencias y cambios realizados.")
+             ["08", "El navegador rechazaba 800 en el precio máximo por min=1 y step=10", "Usar min=0 y step=1", "Prueba automática"],
+             ["09", "El MININTER dejó de publicar el histórico y la lectura de denuncias falló", "Leer y unir los CSV anuales", "Prueba automática"]], [1, 6, 5, 4.5], "Incidencias y cambios realizados.")
     c.imagen(EVI / "pruebas.png", "Resultado de pruebas automáticas.", 15.5)
 
 
@@ -527,7 +556,10 @@ def cierre(pl: Plantilla) -> None:
     c.p("Cuarta. La persistencia guarda inmuebles, usuarios, reportes, reseñas, evaluaciones, alertas y datos externos en 27 tablas con claves foráneas, restricciones CHECK y acceso mediante el patrón DAO.")
     c.p("Quinta. Se atendió la observación del docente: el sistema lee cuatro fuentes del Estado y tres de organizaciones sin fines de lucro cada 24 horas y usa esos datos en decisiones y alertas.")
     c.p(f"Sexta. Las {N_PRUEBAS} pruebas automatizadas pasan con {COBERTURA} % de cobertura, lo que respalda el funcionamiento de las reglas, las fuentes, las vistas y los permisos.")
-    c.p("Séptima. El prototipo aún no mide su impacto en usuarios reales: sus avisos son de demostración y la evidencia social se limita a la encuesta del anexo C.")
+    if ENCUESTA:
+        c.p(f"Séptima. La encuesta a {ENCUESTA['total']} estudiantes respalda el problema y el interés en la solución: el {ENCUESTA['estafa']} % sufrió o conoce un caso de estafa, al {ENCUESTA['pago_previo']} % le pidieron dinero antes de visitar, solo el {ENCUESTA['contrato']} % firmó contrato y el {ENCUESTA['interes_alto']} % calificó con 4 o 5 su interés en usar un verificador. Es una muestra pequeña y no aleatoria, y el prototipo todavía no se probó con avisos reales, así que su impacto debe medirse en un piloto.")
+    else:
+        c.p("Séptima. El prototipo aún no mide su impacto en usuarios reales: sus avisos son de demostración y la evidencia social se limita a la encuesta del anexo C.")
     c = pl.en(415, 420)
     c.p("Las recomendaciones siguen el orden de las limitaciones encontradas e indican qué hacer, quién puede hacerlo y qué se lograría.")
     c.tabla([["N.º", "Recomendación", "Responsable", "Resultado esperado"],
@@ -576,26 +608,34 @@ def anexos(pl: Plantilla) -> None:
              ["Imágenes, video y banner", "Inicio y fichas"], ["Barras laterales", "Catálogo, ficha y administración"], ["Contenido destacado", "Avisos destacados"],
              ["Pie, inicio y CTA", "Todas las páginas e inicio"], ["Blog", "Guías para estudiantes"], ["Formularios y contacto", "Registro, avisos, verificador y contacto"], ["Enlaces internos y externos", "Menú y pie de página"]], [7, 9.5], "Partes mínimas de la página web.")
     c.sub("Anexo C. Evidencia en la sociedad")
-    resultados = RAIZ / "data" / "encuesta_resultados.csv"
-    if resultados.exists():
-        import pandas as pd
-        r = pd.read_csv(resultados)
-        total = len(r)
-        si = lambda col: f"{(r[col].astype(str).str.strip().str.lower() == 'sí').mean() * 100:.0f} %"
-        montos = pd.to_numeric(r["p6_monto"], errors="coerce").dropna()
-        montos = montos[montos > 0]
-        canal = r["p3_canal"].value_counts()
-        c.p(f"La encuesta del instrumento siguiente se aplicó a {total} estudiantes. Las respuestas están en data/encuesta_resultados.csv y Python las resume así:")
+    if ENCUESTA:
+        e = ENCUESTA
+        canales = ", ".join(f"{nombre} {cantidad}" for nombre, cantidad in e["canales"].items())
+        montos = e["montos"]
+        if len(montos):
+            texto_monto = f"S/ {montos.median():,.0f} de mediana en {len(montos)} casos".replace(",", " ")
+        else:
+            texto_monto = "Sin montos declarados"
+        c.p(f"La encuesta se aplicó con Google Forms a {e['total']} estudiantes entre el {e['desde']:%d-%m-%Y} y el {e['hasta']:%d-%m-%Y}. "
+            "Las respuestas exportadas se guardan en la carpeta docs/evidencias/sociedad del repositorio, el script importar_encuesta.py las convierte a CSV y Python las resume así:")
         c.tabla([["Indicador", "Resultado"],
-                 ["Estudiantes de otra provincia o región", si("p1_otra_region")],
-                 ["Buscaron vivienda en el último año", si("p2_busco")],
-                 ["Canal más usado para encontrar avisos", f"{canal.index[0]} ({canal.iloc[0]} de {total})"],
-                 ["Les pidieron dinero antes de visitar", si("p4_pago_previo")],
-                 ["Sufrieron o conocen un caso de estafa", si("p5_estafa")],
-                 ["Monto perdido, mediana de los casos con monto", f"S/ {montos.median():.0f} en {len(montos)} casos" if len(montos) else "Sin montos declarados"],
-                 ["Firmaron contrato", si("p7_contrato")],
-                 ["Interés en usar un verificador, promedio de 1 a 5", f"{pd.to_numeric(r['p8_interes'], errors='coerce').mean():.1f}"]],
-                [10, 6.5], "Resultados de la encuesta a estudiantes.")
+                 ["Estudiantes de otra provincia o región", f"{e['otra_region']} %"],
+                 ["Buscaron vivienda en Arequipa en el último año", f"{e['busco']} %"],
+                 ["Dónde encontraron avisos", canales],
+                 ["Les pidieron dinero antes de visitar", f"{e['pago_previo']} %"],
+                 ["Sufrieron o conocen un caso de estafa", f"{e['estafa']} %"],
+                 ["Monto perdido en los casos con pérdida", texto_monto],
+                 ["Firmaron contrato", f"{e['contrato']} %"],
+                 ["Interés en usar un verificador, de 1 a 5", f"{e['interes']:.1f} de promedio; {e['interes_alto']} % marcó 4 o 5"]],
+                [8, 8.5], "Resultados de la encuesta a estudiantes.")
+        notas = []
+        if len(montos) and montos.max() > 10 * montos.median():
+            notas.append(f"Un caso declaró S/ {montos.max():,.1f}".replace(",", " ") + ", muy por encima del resto; por eso se informa la mediana, que no cambia con ese valor.")
+        if e["sin_monto"]:
+            notas.append(f"{e['sin_monto']} personas dejaron vacía la pregunta del monto y no se cuentan en esa fila.")
+        notas.append("La muestra es pequeña y no aleatoria: confirma que el problema existe entre estudiantes, pero no permite estimar su frecuencia en toda la ciudad.")
+        c.p(" ".join(notas))
+        c.p("Entre las respuestas abiertas, lo que más daría confianza es conocer la experiencia de otros inquilinos, verificar la identidad y los antecedentes del arrendador y contar con un contrato o certificado de posesión. Estas necesidades coinciden con las reseñas verificadas, la validación de documentos y la lista de contactos de riesgo del sistema.")
     else:
         p = c.p("")
         run_con_pendientes(p, "[COMPLETAR: aplicar la encuesta, llenar data/encuesta_resultados.csv con las respuestas y volver a generar el informe]")
