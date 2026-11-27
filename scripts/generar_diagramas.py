@@ -419,8 +419,8 @@ def gantt():
 def organigrama():
     f, e = lienzo(8, 3)
     caja(e, 2.7, 2.2, 2.6, .65, "Docente asesor\nRene Alonso Nieto Valencia", ARENA, tam=8)
-    caja(e, .5, .6, 3.1, .85, "Kasandra Cáceres Quispe\nLíder del proyecto\ny responsable del repositorio", AZUL, tam=8)
-    caja(e, 4.4, .6, 3.1, .85, "Alisson Dolorier Arias\nIntegración, pruebas\ny demostración", VERDE, tam=8)
+    caja(e, .5, .6, 3.1, .85, "Kasandra Cáceres Quispe\nLíder del proyecto", AZUL, tam=8)
+    caja(e, 4.4, .6, 3.1, .85, "Alisson Dolorier Arias\nResponsable de versiones", VERDE, tam=8)
     e.plot([4, 4], [2.2, 1.8], color=TINTA, lw=1)
     e.plot([2.05, 5.95], [1.8, 1.8], color=TINTA, lw=1)
     e.plot([2.05, 2.05], [1.8, 1.45], color=TINTA, lw=1)
