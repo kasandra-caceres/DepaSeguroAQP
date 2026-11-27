@@ -26,7 +26,7 @@ def terminal(nombre: str, texto: str, ancho_max: int = 108) -> None:
             continue
     fuente = fuente or ImageFont.load_default()
     lineas = [linea[:ancho_max] for linea in texto.rstrip().splitlines()]
-    ancho = max(40, max(len(l) for l in lineas)) * 11 + 40
+    ancho = int(max(fuente.getlength("M" * 40), max(fuente.getlength(l) for l in lineas))) + 40
     imagen = Image.new("RGB", (ancho, len(lineas) * 26 + 34), "#1f2a33")
     dibujo = ImageDraw.Draw(imagen)
     for i, linea in enumerate(lineas):
