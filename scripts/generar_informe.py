@@ -32,7 +32,7 @@ def resumen_pruebas() -> tuple[int, int]:
 
 N_PRUEBAS, COBERTURA = resumen_pruebas()
 
-REPOSITORIO = "https://github.com/AlisssonDolorier/DepaSeguroAQP.git"
+REPOSITORIO = "https://github.com/kasandra-caceres/DepaSeguroAQP.git"
 TITULO = ("DepaSeguro AQP: Plataforma de Verificación de Autenticidad, Calificación de Inmuebles y Detección de "
           "Arriendos Fraudulentos para Estudiantes Universitarios")
 
@@ -492,7 +492,7 @@ def capitulo3(pl: Plantilla) -> None:
     c = pl.en(328, 336)
     c.p("La vista llama a controladores Flask. Estos usan servicios Python y los servicios acceden a datos mediante DAO. El planificador alimenta la misma base y dispara nuevos cálculos.")
     c.imagen(DIAG / "arquitectura.png", "Arquitectura del sistema DepaSeguro AQP.")
-    pl.en(338, 342).p(f"El código se versiona con Git y se publica en GitHub en {REPOSITORIO.removesuffix('.git')}. La responsable de versiones administra el repositorio y cada integrante sube sus cambios desde su propia cuenta.")
+    pl.en(338, 342).p(f"El código se versiona con Git y se publica en GitHub en {REPOSITORIO.removesuffix('.git')}. El repositorio está en la cuenta de Kasandra Cáceres Quispe, quien lo administró en esta entrega; la otra integrante participa como colaboradora y sube sus cambios desde su propia cuenta.")
     c = pl.en(342, 355)
     c.p("Se aplicó una estrategia con rama main para versiones estables, develop para integración y feature/* para cada componente. Las correcciones futuras pueden usar fix/*.")
     c.imagen(DIAG / "ramas_flujo.png", "Flujograma de ramificación.")
@@ -506,7 +506,7 @@ def capitulo3(pl: Plantilla) -> None:
     c.p("Los commits siguen el formato tipo(alcance): descripción. Por ejemplo, feat(fuentes), test y docs.")
     c.imagen(EVI / "git_commit.png", "Aplicación de commit de cambio.", 15.5)
     c = pl.en(386, 407)
-    c.p("Estas incidencias ocurrieron durante el desarrollo. Están documentadas en docs/ISSUES.md y registradas como Issues del repositorio, cada una cerrada con el commit que la corrige.")
+    c.p("Estas incidencias ocurrieron durante el desarrollo. Están documentadas en docs/ISSUES.md y registradas como Issues del repositorio, cada una cerrada con referencia al commit y a la prueba que la corrigen.")
     c.tabla([["ID", "Incidencia", "Solución", "Prevención"],
              ["01", "Ubigeos incorrectos en dos distritos", "Comparación con dataset MININTER", "Validar catálogos con la fuente"],
              ["02", "El archivo 2020 del Ministerio Público incluía todos los delitos", "Filtrar por Ley 30096", "Prueba con datos ajenos"],
