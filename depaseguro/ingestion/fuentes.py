@@ -157,6 +157,8 @@ class FuenteDenuncias(FuenteDatos):
     dataset = "denuncias-policiales-registradas-nivel-nacional-mininter"
 
     COLUMNAS = ("UBIGEO_HECHO", "DIST_HECHO", "ANIO", "MES", "P_MODALIDADES", "cantidad")
+    # Nombres que usan los archivos anuales publicados desde noviembre de 2026.
+    ALIAS = {"ANIO_REGISTRO": "ANIO", "MES_REGISTRO": "MES"}
 
     def obtener(self) -> dict:
         """El portal publicó primero un histórico "Enero 2018 a ..." y desde noviembre de 2026 un CSV por año.
@@ -183,6 +185,9 @@ class FuenteDenuncias(FuenteDatos):
         nombres = {c: c.strip().strip('"') for c in tabla.columns}
         tabla = tabla.rename(columns=nombres)
         por_mayuscula = {c.upper(): c for c in tabla.columns}
+        for alias, nombre in self.ALIAS.items():
+            if nombre not in por_mayuscula and alias in por_mayuscula:
+                por_mayuscula[nombre] = por_mayuscula[alias]
         faltan = [c for c in self.COLUMNAS if c.upper() not in por_mayuscula]
         if faltan:
             raise ValueError(f"El archivo no trae las columnas {', '.join(faltan)}. Trae: {', '.join(tabla.columns[:15])}")

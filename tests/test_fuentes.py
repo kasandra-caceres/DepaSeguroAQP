@@ -107,7 +107,8 @@ def test_denuncias_une_archivos_anuales(db):
     ]}]}
     cabecera = '"ANIO","MES","DPTO_HECHO_NEW","PROV_HECHO","DIST_HECHO","UBIGEO_HECHO","P_MODALIDADES","cantidad"\n'
     a2025 = cabecera + '"2025","1","AREQUIPA","AREQUIPA","CAYMA","40103","Estafa",5\n"2025","1","LIMA","LIMA","LIMA","150101","Estafa",9\n'
-    a2026 = cabecera.replace("cantidad", "CANTIDAD") + '"2026","2","AREQUIPA","AREQUIPA","YANAHUARA","40126","Estafa",2\n'
+    a2026 = (cabecera.replace("cantidad", "CANTIDAD").replace('"ANIO","MES"', '"ANIO_REGISTRO","MES_REGISTRO"')
+             + '"2026","2","AREQUIPA","AREQUIPA","YANAHUARA","40126","Estafa",2\n')
     sesion = SesionFalsa({"package_show": Respuesta(json.dumps(catalogo)), "a2025.csv": Respuesta(a2025), "a2026.csv": Respuesta(a2026)})
     resultado = FuenteDenuncias(db, sesion).ejecutar()
     assert resultado["estado"] == "ok" and resultado["registros"] == 2
